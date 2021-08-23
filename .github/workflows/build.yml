@@ -29,3 +29,9 @@ jobs:
         with:
           root_file: main.tex
           latexmk_use_luatex: true
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            main.pdf
+            LICENSE
