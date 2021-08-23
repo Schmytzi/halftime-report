@@ -28,4 +28,10 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: main.tex
-          latexmk_use_luatex: true
+          latexmk_use_lualatex: true
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            main.pdf
+            LICENSE
