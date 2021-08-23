@@ -2,6 +2,9 @@
 # Created by https://www.toptal.com/developers/gitignore/api/tex,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=tex,visualstudiocode
 
+# Main Document output should not be tracked
+main.pdf
+
 ### TeX ###
 ## Core latex/pdflatex auxiliary files:
 *.aux
