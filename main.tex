@@ -1,0 +1,40 @@
+\documentclass[]{scrbook}
+
+% PACKAGES
+\usepackage{fontspec}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{biblatex}
+\usepackage{glossaries}
+
+% SETTINGS
+\title{The Effect of Common and Rare Genetic Variants on the Pathogenesis of Common Complex Diseases}
+\author{Daniel Schmitz}
+\date{2021-03-13}
+
+% GLOSSARY
+\makeglossaries
+\newglossaryentry{variant}{
+    name=variant, description={Genetic variant}
+}
+\newacronym{snp}{SNP}{Single-Nucleotide Polymorphism}
+
+% START OF DOCUMENT
+\begin{document}
+\frontmatter
+
+\begin{titlepage}
+    \maketitle
+\end{titlepage}
+\printglossary
+\chapter*{Abstract}
+    This is an abstract! \Gls{snp} is a \gls{variant}.
+\tableofcontents
+
+\mainmatter
+
+\chapter{Project 1}
+
+\backmatter
+\chapter*{Appendix A}
+\end{document}
