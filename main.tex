@@ -1,35 +1,98 @@
 \documentclass[]{scrbook}
 
 % PACKAGES
+\usepackage{typearea}
+\usepackage{hyperref}
+\usepackage[svgnames]{xcolor}
 \usepackage{fontspec}
 \usepackage{graphicx}
 \usepackage{csquotes}
 \usepackage[backend=biber, style=nature]{biblatex}
 \usepackage{glossaries}
+\usepackage{enumitem}
 
 % SETTINGS
+\definecolor{UppsalaRed}{RGB}{175,0,36}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=UppsalaRed,
+    urlcolor=UppsalaRed,
+    filecolor=UppsalaRed,
+    citecolor=UppsalaRed
+}
+
 \title{The Effect of Common and Rare Genetic Variants on the Pathogenesis of Common Complex Diseases}
 \author{Daniel Schmitz}
-\date{2021-03-13}
+\date{2021-10-15}
+\parskip 6pt
+\parindent 0pt
 
 % GLOSSARY
 \makeglossaries
-\newglossaryentry{variant}{
-    name=variant, description={Genetic variant}
-}
 \newacronym{snp}{SNP}{Single-Nucleotide Polymorphism}
 
 % START OF DOCUMENT
 \begin{document}
-\frontmatter
+
 
 \begin{titlepage}
-    \maketitle
+    \null\vfill\centering
+    \makeatletter
+    \LARGE \sffamily \@title
+
+    \Large \rmfamily \@author
+
+    \vspace*{\fill}
+    \includegraphics[width=.5\pagewidth]{img/UU_logo_4f_42.pdf}
+
+    \vspace*{\fill}
+    \normalsize
+    \textbf{Half-Time Thesis} \\
+    Department of Immunology, Genetics and Pathology,\\
+    Science for Life Laboratory, Uppsala University
+
+    \@date
+    \makeatother
 \end{titlepage}
+\frontmatter
+\textbf{Main Supervisor}\\
+Åsa Johansson, PhD\\
+Associate Professor \\
+Department of Immunology, Genetics and Pathology. Medical Genetics and Genomics, Science for Life Laboratory, Uppsala University, Sweden
+
+\textbf{Cosupervisors}\\
+Torgny Karlsson, PhD\\
+Researcher \\
+Department of Immunology, Genetics and Pathology. Medical Genetics and Genomics, Science for Life Laboratory, Uppsala University, Sweden
+
+Adam Ameur, PhD \\
+Bioinformatician \\
+Department of Immunology, Genetics and Pathology, Uppsala Genome Center, Uppsala University, Sweden
+
+\textbf{Review Committee}
+TBD
+
 \printglossary
 \chapter{Abstract}
-    This is an abstract! \Gls{snp} is a \gls{variant}.
+    This is an abstract! And this is a \href{https://schmytzi.github.io/}{link}!
+
+\chapter{List of Publications}
+This thesis is based on the following papers and projects, referred to in the text by their numbers.
+
+\begin{enumerate}[label=\Roman*.]
+    \item Hormone GWAS
+    \item CNV project
+    \item OC Cancer?
+    \item Unspecified PacBio Project
+\end{enumerate}
+
+\section{Related Publications}
+The following publications are not part of the main research project.
+\begin{itemize}
+    \item VAT paper
+\end{itemize}
 \tableofcontents
+
 
 \mainmatter
 
