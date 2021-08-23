@@ -4,7 +4,7 @@
 \usepackage{fontspec}
 \usepackage{graphicx}
 \usepackage{csquotes}
-\usepackage{biblatex}
+\usepackage[backend=biber, style=nature]{biblatex}
 \usepackage{glossaries}
 
 % SETTINGS
@@ -27,14 +27,31 @@
     \maketitle
 \end{titlepage}
 \printglossary
-\chapter*{Abstract}
+\chapter{Abstract}
     This is an abstract! \Gls{snp} is a \gls{variant}.
 \tableofcontents
 
 \mainmatter
 
-\chapter{Project 1}
+\chapter{Introduction}
+
+\chapter{Aims}
+
+\chapter{Project I}
+
+\chapter{Project II}
+
+\chapter{Project III}
+
+\chapter{Work in Progress}
+
+\chapter{Future Work}
+
+\chapter{Concluding Remarks}
+
 
 \backmatter
-\chapter*{Appendix A}
+
+\chapter{Acknowledgements}
+\printbibliography
 \end{document}
