@@ -10,6 +10,16 @@
 \usepackage[backend=biber, style=nature,maxcitenames=99]{biblatex}
 \usepackage{glossaries}
 \usepackage{enumitem}
+\usepackage{xparse}
+
+% CUSTOM COMMANDS
+\DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
+  \newglossaryentry{gls-#3}{name={#5},text={#5\glsadd{#3}},
+    description={#6},#1
+  }
+  \makeglossaries
+  \newacronym[see={[Glossary:]{gls-#3}},#2]{#3}{#4}{#5\glsadd{gls-#3}}
+}
 
 % SETTINGS
 \definecolor{UppsalaRed}{RGB}{175,0,36}
