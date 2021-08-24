@@ -8,7 +8,7 @@
 \usepackage{graphicx}
 \usepackage{csquotes}
 \usepackage[backend=biber, style=nature,maxcitenames=99]{biblatex}
-\usepackage{glossaries}
+\usepackage[acronyms]{glossaries}
 \usepackage{enumitem}
 \usepackage{xparse}
 
@@ -50,10 +50,17 @@
 \newacronym{wgs}{WGS}{whole-genome sequencing}
 \newacronym{smrt}{SMRT}{Single-Molecule Real-Time Sequencing}
 
+\newdualentry{mr}{MR}{Mendelian Randomization}{This is a very advanced technique.}
+
 % START OF DOCUMENT
 \begin{document}
 
 \frontmatter
+\newlength{\oldparindent}
+\setlength{\oldparindent}{\parindent}
+
+\parskip 6pt
+\parindent 0pt
 
 \begin{titlepage}
     \centering
@@ -92,10 +99,12 @@ Department of Immunology, Genetics and Pathology, Uppsala Genome Center, Uppsala
 \textbf{Review Committee}
 TBD
 
+\printglossary[type=\acronymtype]
+
 \printglossary
 
 \chapter{Abstract}
-    This is an abstract! And this is a \href{https://schmytzi.github.io/}{link}!
+    This is an abstract! And this is a \href{https://schmytzi.github.io/}{link}! There is also a \gls{mr} study.
 
 \chapter{List of Publications}
 This thesis is based on the following papers and projects, referred to in the text by their numbers.
@@ -116,7 +125,8 @@ The following publications are not part of the main research project.
 \tableofcontents
 
 \mainmatter
-
+\parskip 0pt
+\parindent \oldparindent
 \chapter{Introduction}
 
 \chapter{Aims}
