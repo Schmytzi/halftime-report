@@ -320,3 +320,5 @@ TSWLatexianTemp*
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/tex,visualstudiocode
+
+.DS_Store
