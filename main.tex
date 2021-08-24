@@ -7,7 +7,7 @@
 \usepackage{fontspec}
 \usepackage{graphicx}
 \usepackage{csquotes}
-\usepackage[backend=biber, style=nature]{biblatex}
+\usepackage[backend=biber, style=nature,maxcitenames=99]{biblatex}
 \usepackage{glossaries}
 \usepackage{enumitem}
 
@@ -20,6 +20,8 @@
     filecolor=UppsalaRed,
     citecolor=UppsalaRed
 }
+\defaultfontfeatures{Ligatures={Required,Common,TeX}}
+\addbibresource{references.bib}
 
 \title{The Effect of Common and Rare Genetic Variants on the Pathogenesis of Common Complex Diseases}
 \author{Daniel Schmitz}
@@ -29,14 +31,23 @@
 
 % GLOSSARY
 \makeglossaries
-\newacronym{snp}{SNP}{Single-Nucleotide Polymorphism}
+\newacronym{snp}{SNP}{single-nucleotide polymorphism}
+\newacronym{cnv}{CNV}{copy-number variation}
+\newacronym{gwas}{GWAS}{genome-wide association study}
+\newacronym{ld}{LD}{linkage disequilibrium}
+\newacronym{nsphs}{NSPHS}{Northern Swedish Population Health Study}
+\newacronym{pea}{PEA}{protein extension assay}
+\newacronym{ukb}{UKB}{UK Biobank}
+\newacronym{wgs}{WGS}{whole-genome sequencing}
+\newacronym{smrt}{SMRT}{Single-Molecule Real-Time Sequencing}
 
 % START OF DOCUMENT
 \begin{document}
 
+\frontmatter
 
 \begin{titlepage}
-    \null\vfill\centering
+    \centering
     \makeatletter
     \LARGE \sffamily \@title
 
@@ -54,7 +65,6 @@
     \@date
     \makeatother
 \end{titlepage}
-\frontmatter
 \textbf{Main Supervisor}\\
 Åsa Johansson, PhD\\
 Associate Professor \\
@@ -80,13 +90,13 @@ TBD
 This thesis is based on the following papers and projects, referred to in the text by their numbers.
 
 \begin{enumerate}[label=\Roman*.]
-    \item Hormone GWAS
-    \item CNV project
-    \item OC Cancer?
+    \item \fullcite{Schmitz2021}
+    \item High oestradiol levels cause an increased risk for breast and endometrial cancer
+    \item Characterizing Copy Number Variations using Next- and Third-Generation Sequencing and their Association with Plasma Biomarkers
     \item Unspecified PacBio Project
 \end{enumerate}
 
-\section{Related Publications}
+\section*{Related Publications}
 The following publications are not part of the main research project.
 \begin{itemize}
     \item VAT paper
