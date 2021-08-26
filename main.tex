@@ -55,8 +55,15 @@
 \newacronym{smrt}{SMRT}{Single-Molecule Real-Time Sequencing}
 \newacronym{t2d}{T2D}{type 2 diabetes}
 \newacronym{bmd}{BMD}{bone mineral density}
+\newacronym{iv}{IV}{instrumental variable}
+\newacronym{maf}{MAF}{minor allele frequency}
+\newacronym{qc}{QC}{quality control}
 
-\newdualentry{mr}{MR}{Mendelian Randomization}{This is a very advanced technique.}
+
+\newdualentry{mr}{MR}{Mendelian Randomization}{
+    An approach based on randomized controlled trials used to infer the causal effect of an exposure to an outcome using genetic variants as \glspl{iv}.
+    It requires the following assumptions to be met: I) the \glspl{iv} are associated with the exposure, II) the \glspl{iv} affect the outcome exclusively through the exposure, III) the \glspl{iv} are not associated with any confounders.
+}
 
 % START OF DOCUMENT
 \begin{document}
@@ -131,6 +138,7 @@ The following publications are not part of the main research project.
 \tableofcontents
 
 \mainmatter
+\glsresetall
 \parskip 0pt
 \parindent \oldparindent
 \chapter{Introduction}
@@ -152,6 +160,14 @@ Additionally, a recent study in \gls{ukb} identified strong sex-specific genetic
 
 Apart from \glspl{gwas}, the causal effect of hormones on diseases and disease risk has been assessed using \gls{mr} \cite{Eriksson2018b,Ruth2020d, Nethander2018a}.
 While previous \gls{mr} studies identified a beneficial effect of estradiol on \gls{bmd} in males, there have been no such studies in females due to failure to identify valid instruments for \gls{mr} analyses \cite{Eriksson2018b, Nethander2018a}.
+
+\section{Methods}
+\Gls{ukb} is a long-time cohort study comprising about 500,000 participants born between 1939 and 1970 that were recruited from 2006 to 2010.
+Extensive information on lifestyle and anthropometric traits was collected.
+Participants left blood samples that were used for diverse measurements, including hormone levels, as well as genotyping of approximately 800,000 \glspl{snp}.
+
+We used \gls{snp} data imputed using UK10K and 1000 genomes phase 3 reference panels, containing 93,093,070 \glspl{snp} overall.
+We removed \glspl{snp} which had \gls{maf} $ < 0.01$, imputation quality $ < 0.3 $, more than 5\% missing phenotype data or deviated from Hardy-Weinberg equilibrium ($p < 10^{-20}$).
 \chapter{Project II}
 
 \chapter{Project III}
