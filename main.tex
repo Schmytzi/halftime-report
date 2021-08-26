@@ -12,6 +12,7 @@
 \usepackage{enumitem}
 \usepackage{xparse}
 \usepackage{cleveref}
+\usepackage{siunitx}
 
 % CUSTOM COMMANDS
 \DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
@@ -33,6 +34,10 @@
 }
 \defaultfontfeatures{Ligatures={Required, Common, TeX}}
 \addbibresource{Half-Time Thesis.bib}
+\DeclareSIUnit{\litre}{\ell}
+\sisetup{
+    per-mode = symbol
+}
 
 % METADATA
 \title{The Effect of Common and Rare Genetic Variants on the Pathogenesis of Common Complex Diseases}
@@ -168,6 +173,10 @@ Participants left blood samples that were used for diverse measurements, includi
 
 We used \gls{snp} data imputed using UK10K and 1000 genomes phase 3 reference panels, containing 93,093,070 \glspl{snp} overall.
 We removed \glspl{snp} which had \gls{maf} $ < 0.01$, imputation quality $ < 0.3 $, more than 5\% missing phenotype data or deviated from Hardy-Weinberg equilibrium ($p < 10^{-20}$).
+After \gls{qc}, 7,651,231 autosomal \glspl{snp} and 220,468 \glspl{snp} remained. Furthermore, we restricted the analysis to unrelated Caucasian participants, excluding those with sex discordance, high heterozygosity/missingness and more than 5\% missing phenotypes. After \gls{qc}, 361,975 individuals remained, of which 167,168 were male and 194,807 were female.
+
+% \qty{175}{\pmol\per\litre}
+Minimum \qty{175}{\pmol\per\litre}
 \chapter{Project II}
 
 \chapter{Project III}
