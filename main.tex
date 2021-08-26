@@ -63,7 +63,11 @@
 \newacronym{iv}{IV}{instrumental variable}
 \newacronym{maf}{MAF}{minor allele frequency}
 \newacronym{qc}{QC}{quality control}
-
+\newacronym{bmi}{BMI}{body-mass index}
+\newacronym{hrt}{HRT}{hormone-replacement therapy}
+\newacronym{oc}{OC}{oral contraceptive}
+\newacronym{pc}{PC}{principal component}
+\newacronym{shbg}{SHBG}{sex hormone-binding globulin}
 
 \newdualentry{mr}{MR}{Mendelian Randomization}{
     An approach based on randomized controlled trials used to infer the causal effect of an exposure to an outcome using genetic variants as \glspl{iv}.
@@ -173,13 +177,22 @@ Participants left blood samples that were used for diverse measurements, includi
 
 We used \gls{snp} data imputed using UK10K and 1000 genomes phase 3 reference panels, containing 93,093,070 \glspl{snp} overall.
 We removed \glspl{snp} which had \gls{maf} $ < 0.01$, imputation quality $ < 0.3 $, more than 5\% missing phenotype data or deviated from Hardy-Weinberg equilibrium ($p < 10^{-20}$).
-After \gls{qc}, 7,651,231 autosomal \glspl{snp} and 220,468 \glspl{snp} remained. Furthermore, we restricted the analysis to unrelated Caucasian participants, excluding those with sex discordance, high heterozygosity/missingness and more than 5\% missing phenotypes. After \gls{qc}, 361,975 individuals remained, of which 167,168 were male and 194,807 were female.
+After \gls{qc}, 7,651,231 autosomal \glspl{snp} and 220,468 \glspl{snp} on chromosome~X remained. Furthermore, we restricted the analysis to unrelated Caucasian participants, excluding those with sex discordance, high heterozygosity/missingness and more than 5\% missing phenotypes. After \gls{qc}, 361,975 individuals remained, of which 167,168 were male and 194,807 were female.
 
 Only measurements that were taken from blood samples given at the first visit at the assessment center were included in the analysis.
-Estradiol was measured by two-step competitive analysis.
+Estradiol was measured by two-step competitive analysis using a Beckman Coulter Unicel Dxl 800.
 The assay had a lower detection limit of \qty{175}{\pmol\per\litre}, which is above the normal range for serum estradiol concentrations in postmenopausal females (0 -- \qty{73.4}{\pmol\per\litre}) \cite{Nakamoto2010a}.
 Because of the resulting large fraction of measurements below detection limit, estradiol levels were analyzed as a binary phenotype (above/below detection limit).
-Additionally, we performed sensitivity analyses using Tobit modeling, which allowed us to incorporate quantitative measurements where available.
+Additionally, w
+
+We performed two sex-stratified \glspl{gwas} using logistic regression with additive genetic modeling in PLINK~2.
+We included age, \gls{bmi}, the first ten genetic \glspl{pc} and the used genotyping array as covariates.
+For females, we included \gls{hrt}, \gls{oc} use, number of live births, menopausal status and whether they had had a hysterectomy, too.
+We identified lead \glspl{snp} by applying conditional analyses until no significant hits remained.
+We tested all lead \glspl{snp} for sex-specific effects by including an interaction term in the logistic model.
+We performed four sensitivity analyses.
+We stratified females into pre- and postmenopausal, excluded all patients with cancer diagnoses and included testosterone and \gls{shbg} levels as covariates.
+Lastly, we applied a Tobit-I model, which allowed us to incorporate quantitative estradiol measurements where available.
 
 \chapter{Project II}
 
