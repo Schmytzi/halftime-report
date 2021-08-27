@@ -78,6 +78,7 @@
 \newacronym{gefos}{GEFOS}{the Genetic Factors for Osteoporosis Consortium}
 \newacronym{or}{OR}{odds ratio}
 \newacronym{dhea}{DHEA}{dehydroepiandrosterone}
+\newacronym{cyp3a7}{CYP3A7}{cytochrome P450 3A7}
 
 \newdualentry{mr}{MR}{Mendelian Randomization}{
     An approach based on randomized controlled trials used to infer the causal effect of an exposure to an outcome using genetic variants as \glspl{iv}.
@@ -242,7 +243,7 @@ The loci \textit{AR} and \textit{UGT3A1} lost significance, too, but the estimat
 In the quantitative \gls{gwas} using Tobit modeling, 3 \glspl{snp} lost genome-wide significance.
 
 \section{Discussion}
-We performed a \gls{gwas} for dichotomized estradiol levels for males and females in \gls{ukb}; the first of its kind.
+We performed a \gls{gwas} for dichotomized estradiol levels for males and females in \gls{ukb}.
 There were 15 genome-wide significant loci, 14 of which were male-specific, one female-specific and one shared between sexes.
 An additional analysis using a sex-genotype interaction term revealed strong sex-specific effects.
 We found two loci on chromosomes 2 and 15 to be independently associated with estradiol measurements independent of the lead \glspl{snp} on their respective chromosome.
@@ -250,13 +251,16 @@ Most of the loci we identified have previously established links to steroid-horm
 
 \textit{CYP3A7} was significant in both males and females, indicating an important role in estrogen metabolism in both sexes.
 Interestingly, it was also the only gene to have significantly different effects in pre- and postmenopausal females.
-\textit{CYP3A7} encodes cytochrome P450 3A7, which metabolizes a precursor of both androgens and estrogens: \gls{dhea} \cite{Ohmori1998}.
+\textit{CYP3A7} encodes \gls{cyp3a7}, which metabolizes a precursor of both androgens and estrogens: \gls{dhea} \cite{Ohmori1998}.
 Up to 75\% of estrogens in premenopausal women are derived from \gls{dhea} and after menopause, it is the main precursor of androgens and estrogens \cite{Simpson2001}.
 When adjusting for \gls{shbg} and testosterone, \textit{CYP3A7}'s effect disappeared in females.
-These findings point to CYP3A7 fulfilling different functions for steroid-hormone metabolism in males and females.
+These findings point to \gls{cyp3a7} fulfilling different functions for steroid-hormone metabolism in males and females.
 
+Interestingly, \textit{ABO}, the gene responsible for the ABO blood groups, was associated with estradiol levels in males \cite{Ogasawara1996}.
+Our effect allele (rs657152-A) is in \gls{ld} with rs8176719-G, which is present in individuals that do not have blood type O.
+This indicates that people with blood type O have higher estradiol levels.
 
-
+We estimated the causal effect of estradiol on \gls{bmd} using \gls{mr} in males and for the first time in females.
 \chapter{Project II}
 
 \chapter{Project III}
