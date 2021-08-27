@@ -73,6 +73,9 @@
     firstplural = expression quantitative trait loci (eQTL)
     ]{eqtl}{eQTL}{expression quantitative trait locus}
 \newacronym{gtex}{GTEx}{the Genotype-Tissue Expression project}
+\newacronym{gsmr}{GSMR}{generalized summary-based Mendelian Randomization}
+\newacronym{ivw}{IVW}{inverse-variance weighted}
+\newacronym{gefos}{GEFOS}{the Genetic Factors for Osteoporosis Consortium}
 
 \newdualentry{mr}{MR}{Mendelian Randomization}{
     An approach based on randomized controlled trials used to infer the causal effect of an exposure to an outcome using genetic variants as \glspl{iv}.
@@ -202,6 +205,14 @@ We annotated our lead \glspl{snp} to their closest genes and identified possible
 We used data from \gls{gtex} to check for overlap with known \glspl{eqtl} \cite{Carithers2015}.
 Lastly, data from the GWAS Catalog was used to search for prior functional annotation of our lead \glspl{snp}.
 
+To estimate the effect of estradiol on \gls{bmd}, we performed a one-sample \gls{mr} analysis in males and females separately.
+\Gls{bmd} had been recorded using an ultrasound measurement and converted to T-Scores, i.e. the number of standard deviations the measurement differed from the patient's sex's mean. 
+
+The main \gls{mr} analysis was performed using the \textsf{gsmr} package, version 1.0.8 \cite{Zhu2018}, which implements the \gls{gsmr} method.
+We performed sensitivity analyses using the \gls{ivw}, weighted median and MR-Egger methods implemented in the \textsf{TwoSampleMR} package in \texttt{R} \cite{Hemani2018}.
+Additionally, we performed a two-sample \gls{mr} test using the aforementioned methods with summary statistics for lumbar-spine \gls{bmd} from \gls{gefos} \cite{Estrada2012}.
+Because \gls{gefos} had used a different imputation panel than \gls{ukb}, we revised the set of \glspl{iv}.
+For each locus, we selected the most significant common \gls{snp} in \gls{ld} with our lead \gls{snp}.
 \chapter{Project II}
 
 \chapter{Project III}
