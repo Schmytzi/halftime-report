@@ -68,6 +68,11 @@
 \newacronym{oc}{OC}{oral contraceptive}
 \newacronym{pc}{PC}{principal component}
 \newacronym{shbg}{SHBG}{sex hormone-binding globulin}
+\newacronym[
+    plural = eQTL,
+    firstplural = expression quantitative trait loci (eQTL)
+    ]{eqtl}{eQTL}{expression quantitative trait locus}
+\newacronym{gtex}{GTEx}{the Genotype-Tissue Expression project}
 
 \newdualentry{mr}{MR}{Mendelian Randomization}{
     An approach based on randomized controlled trials used to infer the causal effect of an exposure to an outcome using genetic variants as \glspl{iv}.
@@ -184,7 +189,7 @@ Estradiol was measured by two-step competitive analysis using a Beckman Coulter 
 The assay had a lower detection limit of \qty{175}{\pmol\per\litre}, which is above the normal range for serum estradiol concentrations in postmenopausal females (0 -- \qty{73.4}{\pmol\per\litre}) \cite{Nakamoto2010a}.
 Because of the resulting large fraction of measurements below detection limit, estradiol levels were analyzed as a binary phenotype (above/below detection limit).
 
-We performed two sex-stratified \glspl{gwas} using logistic regression with additive genetic modeling in PLINK~2.
+We performed two sex-stratified \glspl{gwas} using logistic regression with additive genetic modeling in \textsf{PLINK~2}.
 We included age, \gls{bmi}, the first ten genetic \glspl{pc} and the used genotyping array as covariates.
 For females, we included \gls{hrt}, \gls{oc} use, number of live births, menopausal status and whether they had had a hysterectomy, too.
 We identified lead \glspl{snp} by applying conditional analyses until no significant hits remained.
@@ -192,6 +197,10 @@ We tested all lead \glspl{snp} for sex-specific effects by including an interact
 We performed four sensitivity analyses.
 We stratified females into pre- and postmenopausal, excluded all patients with cancer diagnoses and included testosterone and \gls{shbg} levels as covariates.
 Lastly, we applied a Tobit-I model, which allowed us to incorporate quantitative estradiol measurements where available.
+
+We annotated our lead \glspl{snp} to their closest genes and identified possible functional effects using \textsf{HaploReg} version 4.1 \cite{Ward2012}.
+We used data from \gls{gtex} to check for overlap with known \glspl{eqtl} \cite{Carithers2015}.
+Lastly, data from the GWAS Catalog was used to search for prior functional annotation of our lead \glspl{snp}.
 
 \chapter{Project II}
 
