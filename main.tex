@@ -115,28 +115,28 @@
     \makeatother
 \end{titlepage}
 
-\normalsize
-\textbf{Main Supervisor}\\
-Åsa Johansson, PhD\\
-Associate Professor \\
-Department of Immunology, Genetics and Pathology. Medical Genetics and Genomics, Science for Life Laboratory, Uppsala University, Sweden
-
-\textbf{Co-Supervisors}\\
-Torgny Karlsson, PhD\\
-Researcher \\
-Department of Immunology, Genetics and Pathology. Medical Genetics and Genomics, Science for Life Laboratory, Uppsala University, Sweden
-
-Adam Ameur, PhD \\
-Bioinformatician \\
-Department of Immunology, Genetics and Pathology, Uppsala Genome Center, Uppsala University, Sweden
-
-\textbf{Review Committee}\\
-TBD
-
-% COPYRIGHT NOTICE
-\vfill
 { % Nested in a group to reset typesetting
-    \footnotesize\raggedright
+    \raggedright
+    \textbf{Main Supervisor}\\
+    Åsa Johansson, PhD\\
+    Associate Professor \\
+    Department of Immunology, Genetics and Pathology. Medical Genetics and Genomics, Science for Life Laboratory, Uppsala University, Sweden
+
+    \textbf{Co-Supervisors}\\
+    Torgny Karlsson, PhD\\
+    Researcher \\
+    Department of Immunology, Genetics and Pathology. Medical Genetics and Genomics, Science for Life Laboratory, Uppsala University, Sweden
+
+    Adam Ameur, PhD \\
+    Bioinformatician \\
+    Department of Immunology, Genetics and Pathology, Uppsala Genome Center, Uppsala University, Sweden
+
+    \textbf{Review Committee}\\
+    TBD
+
+    % COPYRIGHT NOTICE
+    \vfill
+    \footnotesize
     © 2021 Daniel Schmitz
 
     This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit \url{http://creativecommons.org/licenses/by/4.0/}.
@@ -261,6 +261,25 @@ Our effect allele (rs657152-A) is in \gls{ld} with rs8176719-G, which is present
 This indicates that people with blood type O have higher estradiol levels.
 
 We estimated the causal effect of estradiol on \gls{bmd} using \gls{mr} in males and for the first time in females.
+We included up to 16 \glspl{snp} in our \gls{mr} analyses, a large increase from five \glspl{iv} from previous studies \cite{Nethander2018a}.
+Our effect estimates were higher in females than in males, indicating that bone metabolism depends more on estradiol in females.
+This agrees with the rapid decline of \gls{bmd} after menopause and subsequently the prevalence of osteoporosis in postmenopausal women.
+
+While transforming estradiol measurements into a binary phenotype enabled us to increase our cohort size, doing so prohibited us from capturing the full variation in the cohort.
+Therefore, we used applied a Tobit-I model, which incorporates quantitative measurements where available without discarding individuals below detection limit.
+The effect sizes estimated by this method were comparable with those from quantitative studies in the GWAS Catalog.
+This method had not been used for \glspl{gwas} before but our results indicate that it should be useful for future studies.
+
+We identified few significant loci in females, which led to only four \glspl{iv} being included in the \gls{mr}.
+Estradiol levels in women vary wildly during the menstrual cycle, making the genetic effect hard to estimate.
+Furthermore, estrogen levels drop after menopause and are mostly determined by the time that has passed since the last menstruation \cite{Richardson2020}.
+Both of these aspects probably limited the power of our \gls{gwas}.
+Moreover, the low number of \glspl{iv} in our \gls{mr} analyses could have made the results unstable and weak to pleiotropy.
+
+In summary, we identified genetic loci that affect estradiol levels with strong sex-dependent effects.
+We showed the causal effect of estradiol on \gls{bmd}, supporting \gls{hrt} as a preventative treatment of osteoporosis.
+Our findings confirm established medical research as well as provide insight into the metabolism and function of estrogens.
+
 \chapter{Project II}
 
 \chapter{Project III}
