@@ -77,6 +77,7 @@
 \newacronym{ivw}{IVW}{inverse-variance weighted}
 \newacronym{gefos}{GEFOS}{the Genetic Factors for Osteoporosis Consortium}
 \newacronym{or}{OR}{odds ratio}
+\newacronym{dhea}{DHEA}{dehydroepiandrosterone}
 
 \newdualentry{mr}{MR}{Mendelian Randomization}{
     An approach based on randomized controlled trials used to infer the causal effect of an exposure to an outcome using genetic variants as \glspl{iv}.
@@ -113,22 +114,13 @@
     \makeatother
 \end{titlepage}
 
-% COPYRIGHT NOTICE
-\null\vfill
-\footnotesize\raggedright
-© 2021 Daniel Schmitz
-
-This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit
-\url{http://creativecommons.org/licenses/by/4.0/}.
-\cleardoublepage
-
 \normalsize
 \textbf{Main Supervisor}\\
 Åsa Johansson, PhD\\
 Associate Professor \\
 Department of Immunology, Genetics and Pathology. Medical Genetics and Genomics, Science for Life Laboratory, Uppsala University, Sweden
 
-\textbf{Cosupervisors}\\
+\textbf{Co-Supervisors}\\
 Torgny Karlsson, PhD\\
 Researcher \\
 Department of Immunology, Genetics and Pathology. Medical Genetics and Genomics, Science for Life Laboratory, Uppsala University, Sweden
@@ -137,9 +129,17 @@ Adam Ameur, PhD \\
 Bioinformatician \\
 Department of Immunology, Genetics and Pathology, Uppsala Genome Center, Uppsala University, Sweden
 
-\textbf{Review Committee}
+\textbf{Review Committee}\\
 TBD
 
+% COPYRIGHT NOTICE
+\vfill
+{ % Nested in a group to reset typesetting
+    \footnotesize\raggedright
+    © 2021 Daniel Schmitz
+
+    This work is licensed under the Creative Commons Attribution 4.0 International License. To view a copy of this license, visit \url{http://creativecommons.org/licenses/by/4.0/}.
+}
 \printglossary[type=\acronymtype]
 
 \printglossary
@@ -242,6 +242,19 @@ The loci \textit{AR} and \textit{UGT3A1} lost significance, too, but the estimat
 In the quantitative \gls{gwas} using Tobit modeling, 3 \glspl{snp} lost genome-wide significance.
 
 \section{Discussion}
+We performed a \gls{gwas} for dichotomized estradiol levels for males and females in \gls{ukb}; the first of its kind.
+There were 15 genome-wide significant loci, 14 of which were male-specific, one female-specific and one shared between sexes.
+An additional analysis using a sex-genotype interaction term revealed strong sex-specific effects.
+We found two loci on chromosomes 2 and 15 to be independently associated with estradiol measurements independent of the lead \glspl{snp} on their respective chromosome.
+Most of the loci we identified have previously established links to steroid-hormone metabolism, including synthesis, conversion, transport and elimination of steroid hormones.
+
+\textit{CYP3A7} was significant in both males and females, indicating an important role in estrogen metabolism in both sexes.
+Interestingly, it was also the only gene to have significantly different effects in pre- and postmenopausal females.
+\textit{CYP3A7} encodes cytochrome P450 3A7, which metabolizes a precursor of both androgens and estrogens: \gls{dhea} \cite{Ohmori1998}.
+Up to 75\% of estrogens in premenopausal women are derived from \gls{dhea} and after menopause, it is the main precursor of androgens and estrogens \cite{Simpson2001}.
+When adjusting for \gls{shbg} and testosterone, \textit{CYP3A7}'s effect disappeared in females.
+These findings point to CYP3A7 fulfilling different functions for steroid-hormone metabolism in males and females.
+
 
 
 \chapter{Project II}
