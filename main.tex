@@ -76,6 +76,7 @@
 \newacronym{gsmr}{GSMR}{generalized summary-based Mendelian Randomization}
 \newacronym{ivw}{IVW}{inverse-variance weighted}
 \newacronym{gefos}{GEFOS}{the Genetic Factors for Osteoporosis Consortium}
+\newacronym{or}{OR}{odds ratio}
 
 \newdualentry{mr}{MR}{Mendelian Randomization}{
     An approach based on randomized controlled trials used to infer the causal effect of an exposure to an outcome using genetic variants as \glspl{iv}.
@@ -213,6 +214,24 @@ We performed sensitivity analyses using the \gls{ivw}, weighted median and MR-Eg
 Additionally, we performed a two-sample \gls{mr} test using the aforementioned methods with summary statistics for lumbar-spine \gls{bmd} from \gls{gefos} \cite{Estrada2012}.
 Because \gls{gefos} had used a different imputation panel than \gls{ukb}, we revised the set of \glspl{iv}.
 For each locus, we selected the most significant common \gls{snp} in \gls{ld} with our lead \gls{snp}.
+
+\section{Results}
+
+After genotype and estradiol \gls{qc}, 147,690 males remained, of whom 134,323 had estradiol below and 13,367 above detection limit (\qty{175}{\pmol\per\l}).
+Slightly more females (163,985) remained, with 126,524 individuals having estradiol levels below detection limit and 37,461 above.
+Only 9.1\% of males and 7.9\% of postmenopausal females had detectable estradiol levels, while 71.9\% of premenopausal females had measurements.
+
+Overall, we found 15 loci on 14 chromosomes to be significantly associated ($p < 5*10^{-8}$) with estradiol levels, of which 13 were specific to males, one (\textit{MCM8}) specific to females and one (\textit{CYP3A7}) shared between both sexes.
+We identified one conditional hit each on chromosomes 2 and 15.
+12 of our \gls{gwas} hits had already established links to estradiol or steroid-hormone metabolism.
+
+After stratification of the female cohort into pre- and postmenopausal, we identified one locus (\textit{CYP3A7}) with significantly different effects between the two strata.
+Removal of all participants with previous cancer diagnoses did not lead to a change in our primary \gls{gwas} results.
+Lastly, adjusting our model for testosterone and \gls{shbg} levels caused the loci \textit{SHBG} and \textit{FKBP4} to lose genome-wide significance with lower effect estimates.
+The loci \textit{AR} and \textit{UGT3A1} lost significance, too, but the estimated \glspl{or} did not differ significantly.
+In the quantitative \gls{gwas} using Tobit modeling, 3 \glspl{snp} lost genome-wide significance.
+
+
 \chapter{Project II}
 
 \chapter{Project III}
