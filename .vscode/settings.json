@@ -101,12 +101,20 @@
                 "-file-line-error",
                 "%DOC%"
             ]
+        },
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": [
+                "%DOC%"
+            ]
         }
     ],
     "latex-workshop.latex.recipes": [
         {
             "name": "LuaLaTeX",
             "tools": [
+                "biber",
                 "lualatex"
             ]
 
