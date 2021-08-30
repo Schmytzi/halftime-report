@@ -209,7 +209,7 @@ Because of the resulting large fraction of measurements below detection limit, e
 
 We performed two sex-stratified \glspl{gwas} using logistic regression with additive genetic modeling in \textsf{PLINK~2}.
 We included age, \gls{bmi}, the first ten genetic \glspl{pc} and the used genotyping array as covariates.
-For females, we included \gls{hrt}, \gls{oc} use, number of live births, menopausal status and whether they had had a hysterectomy, too.
+For females, we included \gls{hrt}, \gls{oc} use (never/ever/current), number of live births, menopausal status and whether they had had a hysterectomy, too.
 We identified lead \glspl{snp} by applying conditional analyses until no significant hits remained.
 We tested all lead \glspl{snp} for sex-specific effects by including an interaction term in the logistic model.
 We performed four sensitivity analyses.
@@ -311,7 +311,7 @@ However, data from before 1995 was lacking.
 Therefore, we had to rely on self-reported data for these cases.
 
 We estimated the effects of our estradiol \glspl{iv} on risk for all three cancers using \textsf{PLINK 2}.
-We applied a logistic model with additive effects
+We applied a logistic model with additive effects with the following covariates: age, \gls{bmi}, genetic \glspl{pc} 1--10, \gls{hrt} use (never/ever/current), \gls{oc} use (never/ever/current), number of live births, menopausal status and whether the participant had undergone a hysterectomy.
 
 \chapter{Project III}
 
