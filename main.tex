@@ -215,7 +215,8 @@ We annotated our lead \glspl{snp} to their closest genes and identified possible
 We used data from \gls{gtex} to check for overlap with known \glspl{eqtl} \cite{Carithers2015}.
 Lastly, data from the GWAS Catalog was used to search for prior functional annotation of our lead \glspl{snp}.
 
-To estimate the effect of estradiol on \gls{bmd}, we performed a one-sample \gls{mr} analysis in males and females separately.
+To estimate the effect of estradiol on \gls{bmd}, we performed a one-sample \gls{mr} analysis in males and females separately using our \gls{gwas} lead \glspl{snp} as \glspl{iv}.
+Due to the low number of significant associations in the female cohort, we applied a relaxed significance threshold ($p < 10^{-7}$) tp increase the number of available \glspl{iv}.
 \Gls{bmd} had been recorded using an ultrasound measurement and converted to T-Scores, i.e. the number of standard deviations the measurement differed from the patient's sex's mean. 
 
 The main \gls{mr} analysis was performed using the \textsf{gsmr} package, version 1.0.8 \cite{Zhu2018}, which implements the \gls{gsmr} method.
@@ -294,7 +295,8 @@ In fact, there has been one study that used one \gls{snp} as \gls{iv} to estimat
 No previous \gls{mr} studies concerning the effect of estradiol on breast or ovarian cancer have been published.
 
 \section{Methods}
-
+We used \gls{ukb} as the base cohort for this study.
+Genotype \gls{qc} was performed in the same way
 
 \chapter{Project III}
 
