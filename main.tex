@@ -80,6 +80,11 @@
 \newacronym{or}{OR}{odds ratio}
 \newacronym{dhea}{DHEA}{dehydroepiandrosterone}
 \newacronym{cyp3a7}{CYP3A7}{cytochrome P450 3A7}
+\newacronym[
+    first=the International Classification of Diseases
+    ]{icd}{ICD}{International Classification of Diseases}
+\newacronym{icd9}{ICD-9}{\gls{icd}, revision 9}
+\newacronym[first=revision 10 (ICD-10)]{icd10}{ICD-10}{\gls{icd}, revision 10}
 
 \newdualentry{mr}{MR}{Mendelian Randomization}{
     An approach based on randomized controlled trials used to infer the causal effect of an exposure to an outcome using genetic variants as \glspl{iv}.
@@ -188,7 +193,7 @@ Additionally, a recent study in \gls{ukb} identified strong sex-specific genetic
 Apart from \glspl{gwas}, the causal effect of hormones on diseases and disease risk has been assessed using \gls{mr} \cite{Eriksson2018b,Ruth2020d, Nethander2018a}.
 While previous \gls{mr} studies identified a beneficial effect of estradiol on \gls{bmd} in males, there have been no such studies in females due to failure to identify valid instruments for \gls{mr} analyses \cite{Eriksson2018b, Nethander2018a}.
 
-\section{Methods}
+\section{Methods} \label{p1methods}
 \Gls{ukb} is a long-time cohort study comprising about 500,000 participants born between 1939 and 1970 that were recruited from 2006 to 2010.
 Extensive information on lifestyle and anthropometric traits was collected.
 Participants left blood samples that were used for diverse measurements, including hormone levels, as well as genotyping of approximately 800,000 \glspl{snp}.
@@ -295,8 +300,18 @@ In fact, there has been one study that used one \gls{snp} as \gls{iv} to estimat
 No previous \gls{mr} studies concerning the effect of estradiol on breast or ovarian cancer have been published.
 
 \section{Methods}
-We used \gls{ukb} as the base cohort for this study.
-Genotype \gls{qc} was performed in the same way
+We used female participants from \gls{ukb} as the base cohort for this study.
+Genotype and sample \gls{qc} were discussed in \hyperref[p1methods]{Project~I}, as we used the effect estimates for estradiol from that study.
+
+We assessed cancer incidence using diagnoses from hospital stays, death and cancer registries as well as answers from verbal interviews and touchscreen questionnaires.
+Diagnoses were encoded as codes from \gls{icd9} and \gls{icd10}.
+Breast cancer was represented by codes 174 (\gls{icd9}) and C50 (\gls{icd10}), ovarian cancer by codes 183 (\gls{icd9}) and C56 (\gls{icd10}) and endometrial cancer by \gls{icd10} code C541.
+Most cases were recorded in the cancer register.
+However, data from before 1995 was lacking.
+Therefore, we had to rely on self-reported data for these cases.
+
+We estimated the effects of our estradiol \glspl{iv} on risk for all three cancers using \textsf{PLINK 2}.
+We applied a logistic model with additive effects
 
 \chapter{Project III}
 
