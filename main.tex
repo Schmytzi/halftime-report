@@ -85,6 +85,9 @@
     ]{icd}{ICD}{International Classification of Diseases}
 \newacronym{icd9}{ICD-9}{\gls{icd}, revision 9}
 \newacronym[first=revision 10 (ICD-10)]{icd10}{ICD-10}{\gls{icd}, revision 10}
+\newacronym{bcac}{BCAC}{the Breast Cancer Association Consortium}
+\newacronym{ecac}{ECAC}{the Endometrial Cancer Association Consortium}
+\newacronym{ocac}{OCAC}{the Ovarian Cancer Association Consortium}
 
 \newdualentry{mr}{MR}{Mendelian Randomization}{
     An approach based on randomized controlled trials used to infer the causal effect of an exposure to an outcome using genetic variants as \glspl{iv}.
@@ -316,7 +319,10 @@ We applied a logistic model with additive effects with the following covariates:
 To infer the causal effect of endogenous estradiol on cancer risk, we performed a one-sample \gls{mr} analysis using our computed effect estimates and a two-sample \gls{mr} analysis, where we used publicly available \gls{gwas} data for \gls{snp} effects on cancer risk.
 The main analyses were performed using the \texttt{R} package \textsf{gsmr} version 1.0.8 \cite{Zhu2018}.
 We used the \texttt{R} package \textsf{MendelianRandomization} for sensitivity analyses, using the included methods: robust \gls{ivw}, weighted median and MR-Egger \cite{Olena2017}.
-
+Effect estimates for breast cancer were taken from summary statistics published by \gls{bcac}, whose study included 122,977 breast-cancer cases and 105,974 healthy individuals of European origin \cite{Michailidou2017}.
+Endometrial-cancer estimates were taken from a \gls{gwas} published by \gls{ecac} \cite{OMara2018}.
+After removing individuals from \gls{ukb}, 12,720 cases and 46,126 controls of European ancestry remained.
+Summary statistics for ovarian-cancer risk were taken from a study by \gls{ocac} including 25,509 cases of epithelial ovarian cancer and 40,491 controls \cite{Phelan2017}.
 
 \chapter{Project III}
 
