@@ -313,6 +313,11 @@ Therefore, we had to rely on self-reported data for these cases.
 We estimated the effects of our estradiol \glspl{iv} on risk for all three cancers using \textsf{PLINK 2}.
 We applied a logistic model with additive effects with the following covariates: age, \gls{bmi}, genetic \glspl{pc} 1--10, \gls{hrt} use (never/ever/current), \gls{oc} use (never/ever/current), number of live births, menopausal status, whether the participant had undergone a hysterectomy and a binary indicator for the used genotyping array.
 
+To infer the causal effect of endogenous estradiol on cancer risk, we performed a one-sample \gls{mr} analysis using our computed effect estimates and a two-sample \gls{MR} analysis, where we used publicly available \gls{gwas} data for \gls{snp} effects on cancer risk.
+The main analyses were performed using the \texttt{R} package \textsf{gsmr} version 1.0.8.
+We used the \texttt{R} package \textsf{MendelianRandomization} for sensitivity analyses, using the included methods: robust \gls{ivw}, weighted median and MR-Egger.
+
+
 \chapter{Project III}
 
 \chapter{Concluding Remarks}
