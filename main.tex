@@ -92,6 +92,7 @@
 \newacronym{sv}{SV}{structural variation}
 \newacronym{acgh}{aCGH}{array comparative genomic hybridization}
 \newacronym{ngs}{NGS}{next-generation sequencing}
+\newacronym{clr}{CLR}{continuous long read}
 
 \newdualentry{mr}{MR}{Mendelian Randomization}{
     An approach based on randomized controlled trials used to infer the causal effect of an exposure to an outcome using genetic variants as \glspl{iv}.
@@ -413,6 +414,12 @@ Lastly, adjacent windows that had consistent copy numbers across individuals wer
 
 We identified copy number-biomarker associations using a linear regression model (\texttt{glm} function in \texttt{R} version 4.3.4).
 We included sex and age as covariates and applied an adjusted significance threshold of \(p < 4.79*10^{-9}\).
+
+We selected 15 individuals to be resequenced using PacBio \gls{smrt} sequencing based on five \gls{cnv} that showed strong associations, high polymorphism and included both deletions and duplications.
+Long-read sequencing was performed on a PacBio SEQUEL II system in \gls{clr} mode according to manufacturer specification.
+PacBio's tool chain automatically mapped all reads to GRCh38.
+Therefore, we had to extract the reads and remap them to GRCh37 using \textsf{pbmm2} version 1.4.0.
+We called \glspl{sv} using three different tools: SVIM v1.4.2, Sniffles v1.0.12 and PBSV v2.4.0.
 
 \chapter{Project IV}
 \chapter{Concluding Remarks}
