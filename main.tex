@@ -411,6 +411,9 @@ To facilitate association testing, we aligned the detected \glspl{cnv} to non-ov
 If a sample had a \gls{cnv} overlapping with a given window, we set that window's copy number appropriately.
 Lastly, adjacent windows that had consistent copy numbers across individuals were merged to make up the final \glspl{cnv}.
 
+We identified copy number-biomarker associations using a linear regression model (\texttt{glm} function in \texttt{R} version 4.3.4).
+We included sex and age as covariates and applied an adjusted significance threshold of \(p < 4.79*10^{-9}\).
+
 \chapter{Project IV}
 \chapter{Concluding Remarks}
 
