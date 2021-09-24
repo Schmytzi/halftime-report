@@ -14,6 +14,7 @@
 \usepackage{cleveref}
 \usepackage{siunitx}
 \usepackage{microtype}
+\usepackage{booktabs}
 
 % CUSTOM COMMANDS
 \DeclareDocumentCommand{\newdualentry}{ O{} O{} m m m m } {
@@ -415,11 +416,47 @@ Lastly, adjacent windows that had consistent copy numbers across individuals wer
 We identified copy number-biomarker associations using a linear regression model (\texttt{glm} function in \texttt{R} version 4.3.4).
 We included sex and age as covariates and applied an adjusted significance threshold of \(p < 4.79*10^{-9}\).
 
-We selected 15 individuals to be resequenced using PacBio \gls{smrt} sequencing based on five \gls{cnv} that showed strong associations, high polymorphism and included both deletions and duplications.
+\begin{table}
+    \centering
+    \begin{tabular}{r r l}
+        \toprule
+        \textbf{Chromosome} & \textbf{CNV Size (bp)} & \textbf{Associated Biomarker} \\
+        \midrule
+        2 & 2,800 & GPNMB \\
+        3 & 4,200 & PD-L2 \\
+        5 & 92,000 & IL18 \\
+        16 & 15,400 & SULT1A1 \\
+        19 & 5,200 & pIgR \\
+        \bottomrule
+    \end{tabular}
+    \caption{The \glspl{cnv} that were used to select 15 individuals for resequencing.}
+    \label{tab:primecnvs}
+\end{table}
+
+We selected 15 individuals to be resequenced using PacBio \gls{smrt} sequencing based on five \gls{cnv} that showed strong associations, high polymorphism and included both deletions and duplications (\cref{tab:primecnvs}).
 Long-read sequencing was performed on a PacBio SEQUEL II system in \gls{clr} mode according to manufacturer specification.
 PacBio's tool chain automatically mapped all reads to GRCh38.
 Therefore, we had to extract the reads and remap them to GRCh37 using \textsf{pbmm2} version 1.4.0.
-We called \glspl{sv} using three different tools: SVIM v1.4.2, Sniffles v1.0.12 and PBSV v2.4.0.
+We called \glspl{sv} using three different tools: \textsf{SVIM} v1.4.2, \textsf{Sniffles} v1.0.12 and \textsf{PBSV} v2.4.0.
+
+\section{Results}
+Overall, we detected 243,987 \glspl{cnv} using \textsf{CNVnator}.
+Of these, 30 were associated with 17 biomarkers.
+
+The quality of our long-read sequencing results was mixed.
+While most samples received high coverage, in three cases less than half of all ZMWs produced high-quality reads.
+The \gls{cnv} on chromosome 2 was not called by any of our long-read callers.
+The \gls{cnv} on chromosome 3 was only detected by \textsf{SVIM}, which also called all copy numbers in accordance with \textsf{CNVnator}.
+The \gls{cnv} on chromosome 5 was not detected in the long-read data.
+The coverage in this region was spotty at best, in both Illumina and \gls{smrt} sequencing data.
+This might be caused by the large number of repetitive elements and consequently low mappability in this region.
+The \gls{cnv} on chromosome 16, which was exclusively called as a duplication by \textsf{CNVnator}, was not detected by an long-read caller.
+However, \textsf{SVIM} called many smaller insertions in this region, which mapped well to repetitive elements.
+This suggests that \textsf{CNVnator} might indeed have picked up on these repetitive elements and merged them into one big \gls[cnv] down the line.
+The \gls{cnv} on chromosome 19 was consistently detected by all callers.
+
+\section{Discussion}
+
 
 \chapter{Project IV}
 \chapter{Concluding Remarks}
