@@ -456,7 +456,26 @@ This suggests that \textsf{CNVnator} might indeed have picked up on these repeti
 The \gls{cnv} on chromosome 19 was consistently detected by all callers.
 
 \section{Discussion}
+We called \glspl{cnv} using \gls{wgs} data in a cohort of more than 1000 individuals.
+We identified 243,987 \gls{cnv} loci, of which 30 were associated with 17 plasma protein measurements.
 
+We tried to replicate five \glspl{cnv} using long-read sequencing in 15 individuals.
+Two \glspl{cnv}, which were both deletions, could be replicated.
+Two further \glspl{cnv} appeared not to be singular variants but instead clusters of repetitive elements.
+The last \gls{cnv} did not replicate at all.
+In general, deletions seem easier to detect and verify than duplications.
+
+\section{Future Work}
+This project has not concluded fully.
+To make use of the results we have got so far, it would be interesting to functionally annotate the detected \glspl{cnv}.
+This would help elucidate the pathways through which they affect their associated proteins.
+
+Furthermore, it should be worthwhile to develop a method that allows for easier \gls{cnv} validation.
+So far, this is a manual process, which is very time consuming.
+Devising such a method would also benefit future research in this field.
+
+Lastly, we might be able to further elucidate the nature of the detected \glspl{cnv} by assembling the genomes of the individuals we sequenced using \gls{smrt} technology.
+This would allow us to characterize the copy numbers and break points better.
 
 \chapter{Project IV}
 \chapter{Concluding Remarks}
