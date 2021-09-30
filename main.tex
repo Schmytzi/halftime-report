@@ -212,7 +212,8 @@ After all data was collected, a \gls{gwas} identifies associations by applying a
 This model uses the phenotype as response, each \gls{snp} as predictor and all phenotypes that might confound as covariates.
 To control for multiple testing, an adjusted significance threshold of $p < 5 * 10^{-8}$ is commonly applied.
 This is equivalent to adjusting for 1 million independent variants \cite{Belmont2005}.
-
+Because of \gls{ld}, not all variants that pass genome-wide significance are reported.
+Instead, variants that are close together, are clumped into one locus and only the variant with the strongest association is reported.
 
 Over the last two decades, \glspl{gwas} have enabled us to gain unprecedented insight into the genetic architecture of human diseases and complex traits.
 Increasingly larger cohorts such as \gls{ukb} contributed to the continuously improving statistical power of \gls{gwas}, which accelerated this trend.
