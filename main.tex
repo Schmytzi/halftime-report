@@ -208,6 +208,12 @@ Data can be obtained in a variety of ways depending on the trait to be assessed.
 The data can stem from measurements of blood samples, physical assessments, questionnaires or registries.
 In addition to the specific phenotype the study is supposed to investigate, a number of other traits which might act as confounders are recorded.
 
+After all data was collected, a \gls{gwas} identifies associations by applying a linear regression model for quantitative traits or a logistic model for binary traits.
+This model uses the phenotype as response, each \gls{snp} as predictor and all phenotypes that might confound as covariates.
+To control for multiple testing, an adjusted significance threshold of $p < 5 * 10^{-8}$ is commonly applied.
+This is equivalent to adjusting for 1 million independent variants \cite{Belmont2005}.
+
+
 Over the last two decades, \glspl{gwas} have enabled us to gain unprecedented insight into the genetic architecture of human diseases and complex traits.
 Increasingly larger cohorts such as \gls{ukb} contributed to the continuously improving statistical power of \gls{gwas}, which accelerated this trend.
 As of the time of writing, the GWAS Catalog---the largest database of \gls{gwas} results---contains 293,040 associations of \glspl{snp} and \glspl{indel} to phenotypes \cite{Buniello2019}.
