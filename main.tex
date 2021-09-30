@@ -213,7 +213,7 @@ This model uses the phenotype as response, each \gls{snp} as predictor and all p
 To control for multiple testing, an adjusted significance threshold of $p < 5 * 10^{-8}$ is commonly applied.
 This is equivalent to adjusting for 1 million independent variants \cite{Belmont2005}.
 Because of \gls{ld}, not all variants that pass genome-wide significance are reported.
-Instead, variants that are close together, are clumped into one locus and only the variant with the strongest association is reported.
+Instead, variants that are close together, are clumped into one locus and only the variant with the strongest association, the \texit{lead \gls{snp}}, is reported.
 
 Over the last two decades, \glspl{gwas} have enabled us to gain unprecedented insight into the genetic architecture of human diseases and complex traits.
 Increasingly larger cohorts such as \gls{ukb} contributed to the continuously improving statistical power of \gls{gwas}, which accelerated this trend.
@@ -229,8 +229,18 @@ In order for a variant to be a valid \gls{iv}, it must meet the following assump
     \item It affects the outcome exclusively through the exposure.
     \item It is not associated with any confounders.
 \end{enumerate}
-\Gls{mr} avoids problems of conventional observational studies such as reverse causation because its \glspl{iv} are assigned at birth.
+\Gls{mr} avoids problems of conventional observational studies such as reverse causation because its \glspl{iv} are assigned at conception.
 
+There are two major designs for \gls{mr} studies.
+One-sample \gls{mr} uses exposure and outcome data from the same cohort.
+While this allows for an easy study design (you only need to measure an additional phenotype), one-sample \gls{mr} studies are often affected by the so-called winner's curse bias, which leads to overestimated effect sizes.
+
+Two-sample \gls{mr} studies on the other hand use \gls{gwas} summary statistics from other cohorts.
+Thanks to platforms like the GWAS Catalog and MR Base, summary statistics to use for two-sample \gls{mr} studies are easily available.
+While they avoid the winner's curse bias, two-sample approaches tend to be biased towards null.
+Furthermore, differences in genotyped or imputed \glspl{snp} can complicate this approach and make it necessary to find proxy \glspl{snp} as replacement for lead \glspl{snp} that are not present in both studies' data.
+
+\section{Copy Number Variations}
 Despite the advances in the statistical power of \glspl{gwas}, only a fraction of observed heritability of many traits can be explained by \glspl{snp}.
 The 1000 Genomes Project estimated in 2015 that 99.9\% of variants present in a typical human genome are \glspl{snp} and \glspl{indel} \cite{Auton2015a}.
 However, they note that another kind of variation, \glspl{sv}, which include \glspl{cnv}, affect more bases overall.
