@@ -193,11 +193,26 @@ The following publications are not part of the main research project.
 \parskip 0pt
 \parindent \oldparindent
 \chapter{Introduction}
+\section{Genome-Wide Association Studies}
+\Glspl{gwas} identify associations between genetic variants and phenotypes.
+The majority of \glspl{gwas} investigate \glspl{snp} and \glspl{indel} for associations.
+However, the method is not restricted to these kinds of variants.
+
+To perform a \gls{gwas}, it is first necessary to genotype a large cohort of individuals.
+Usually, this is done using \gls{snp} arrays, which only allow for the detection of previously identified variants but are generally cheap and reliable.
+Other genotyping approaches which use \gls{ngs}, such as \gls{wgs} and \gls{wes}, have increased in popularity but are still too expensive for widespread use in large studies.
+After genotyping, \glspl{snp} that were not present on the genotyping array are often imputed from the ones that were present based on \gls{ld}.
+
+Suitable phenotype for \gls{gwas} can be quantitative traits, e.g. height or levels of certain proteins in blood, or binary, e.g. the presence of a certain disease.
+Data can be obtained in a variety of ways depending on the trait to be assessed.
+The data can stem from measurements of blood samples, physical assessments, questionnaires or registries.
+In addition to the specific phenotype the study is supposed to investigate, a number of other traits which might act as confounders are recorded.
 
 Over the last two decades, \glspl{gwas} have enabled us to gain unprecedented insight into the genetic architecture of human diseases and complex traits.
 Increasingly larger cohorts such as \gls{ukb} contributed to the continuously improving statistical power of \gls{gwas}, which accelerated this trend.
 As of the time of writing, the GWAS Catalog---the largest database of \gls{gwas} results---contains 293,040 associations of \glspl{snp} and \glspl{indel} to phenotypes \cite{Buniello2019}.
 
+\section{Mendelian Randomization}
 In addition to elucidation the effect of \glspl{snp} on traits and disease risk, \gls{gwas} results can also be leveraged to infer the causal relationship between traits through an approach called \gls{mr}.
 \Gls{mr} studies apply a design based on randomized controlled trials to estimate the effect of an exposure on an outcome using genetic variants as \glspl{iv}.
 The underlying reasoning is that if there is a variant that affects the exposure, then it should indirectly affect the outcome through the exposure proportionally.
