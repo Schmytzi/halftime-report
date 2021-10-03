@@ -99,6 +99,7 @@
 ]{indel}{indel}{small insertion and deletion}
 \newacronym{mr}{MR}{Mendelian Randomization}
 \newacronym{wes}{WES}{whole-exome sequencing}
+\newacronym{cn}{CN}{copy number}
 
 % START OF DOCUMENT
 \begin{document}
@@ -277,10 +278,24 @@ Finally, \gls{gsmr}, which allows for the detection and removal of pleiotropic \
 \section{Copy Number Variations}
 Despite the advances in the statistical power of \glspl{gwas}, only a fraction of observed heritability of many traits can be explained by \glspl{snp}.
 The 1000 Genomes Project estimated in 2015 that 99.9\% of variants present in a typical human genome are \glspl{snp} and \glspl{indel} \cite{Auton2015a}.
-However, they note that another kind of variation, \glspl{sv}, which include \glspl{cnv}, affect more bases overall.
-Another study from the same year found that  \glspl{sv} account for approximately 13\% of genetic variation in humans \cite{Sudmant2015}.
+However, they note that another kind of variation, \glspl{sv}, which are variants that affect more than \qty{50}{\base}, cover a larger fraction of the genome.
+Another study from the same year found that \glspl{sv} account for approximately 13\% of genetic variation in humans \cite{Sudmant2015}.
 Nonetheless, only few studies have investigated associations between \glspl{sv} and diseases or complex traits.
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{img/cnv_example.png}
+    \caption{Example of a \gls{cnv}.
+        Each arrow represents a copy of the sequence of interest.
+        Assuming a diploid genome, the reference has \gls{cn} 4.
+        Individual 1 has more copies, which is called a \textit{duplication} or \textit{\gls{cn} gain}.
+        Individual 2 has lost a copy.
+        This is called a \textit{deletion} or \textit{\gls{cn} loss}.}
+        \label{fig:cnv}
+\end{figure}
+
+A big group of \glspl{sv} that has received more attention are \glspl{cnv}.
+A \gls{cnv} is a variant that affects the number of copies, i.e. the \gls{cn}, of a genomic sequence (\cref*{fig:cnv}).
 One important reason for the lack of research on the effects of \glspl{cnv} is the fact that they are hard to detect.
 Thanks to improving quality and cost of \gls{wgs}, the interest in \glspl{cnv} has increased dramatically.
 The advent of novel sequencing technologies such as PacBio \gls{smrt} promises to enable direct sequencing and therefore easier detection of large \glspl{sv}.
