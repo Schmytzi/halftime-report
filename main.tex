@@ -317,6 +317,14 @@ Extensive information on lifestyle and anthropometric traits was collected.
 Participants left blood samples that were used for diverse measurements, including hormone levels, as well as genotyping of approximately 800,000 \glspl{snp}.
 
 \subsection{Northern Swedish Population Health Study}
+e employed \gls{nsphs}, a cohort study consisting of approx. 1000 individuals from two municipalities in northern Sweden, as the base cohort of our study.
+Blood samples were collected on site and immediately frozen at \qty{-70}{\celsius}.
+\Gls{wgs} was performed on an Illumina HiSeq X platform according to manufacturer specification with a target coverage of 30$\times$ \cite{Ameur2017}.
+After \gls{qc} and mapping to reference genome GRCh37, 1021 individuals remained.
+
+We measured 438 plasma biomarkers measured using Olink \gls{pea} in 903 individuals.
+Of these, 982 individuals passed \gls{qc} for all protein measurements.
+Overall, there were 872 individuals passing both genotype and protein \gls{qc}.
 
 \chapter{Aims}
 The general aim is to identify novel previously unknown effects of genetic variants on human traits and diseases.
@@ -554,15 +562,6 @@ Despite the success of \gls{ngs}, it is difficult to accurately detect \glspl{cn
 However, the advent of third-generation sequencing technologies such as PacBio \gls{smrt} enables the generation of reads long enough to directly sequence long \glspl{sv} and improve mapping accuracy.
 
 \section{Methods}
-We employed \gls{nsphs}, a cohort study consisting of approx. 1000 individuals from two municipalities in northern Sweden, as the base cohort of our study.
-Blood samples were collected on site and immediately frozen at \qty{-70}{\celsius}.
-\Gls{wgs} was performed on an Illumina HiSeq X platform according to manufacturer specification with a target coverage of 30$\times$ \cite{Ameur2017}.
-After \gls{qc} and mapping to reference genome GRCh37, 1021 individuals remained.
-
-We measured 438 plasma biomarkers measured using Olink \gls{pea} in 903 individuals.
-Of these, 982 individuals passed \gls{qc} for all protein measurements.
-Overall, there were 872 individuals passing both genotype and protein \gls{qc}.
-
 We called \glspl{cnv} using \textsf{CNVnator}, a read-depth based method for \gls{cnv} detection \cite{Abyzov2011b}.
 This tool calls \glspl{cnv} by dividing the genome into non-overlapping bins and identifying those bins that received abnormally high or low coverage.
 The bin sizes were determined for each individual separately.
@@ -571,7 +570,7 @@ If a sample had a \gls{cnv} overlapping with a given window, we set that window'
 Lastly, adjacent windows that had consistent copy numbers across individuals were merged to make up the final \glspl{cnv}.
 
 We identified copy number-biomarker associations using a linear regression model (\texttt{glm} function in \texttt{R} version 4.3.4).
-We included sex and age as covariates and applied an adjusted significance threshold of \(p < 4.79*10^{-9}\).
+We included sex and age as covariates and applied an adjusted significance threshold of \(p < 4.79*10^{-9}\), which corresponds to the general significance threshold of $p < 0.05$ adjusted for 10,438,413 tests (438 proteins $\times$ 23,831 \glspl{cnv}).
 
 \begin{table}
     \centering
@@ -590,13 +589,13 @@ We included sex and age as covariates and applied an adjusted significance thres
     \label{tab:primecnvs}
 \end{table}
 
-We selected 15 individuals to be resequenced using PacBio \gls{smrt} sequencing based on five \gls{cnv} that showed strong associations, high polymorphism and included both deletions and duplications (\cref{tab:primecnvs}).
+We selected 15 individuals to be resequenced using PacBio \gls{smrt} sequencing based on five \gls{cnv} that showed strong associations, were highly polymorphic and included both deletions and duplications (\cref{tab:primecnvs}).
 Long-read sequencing was performed on a PacBio SEQUEL II system in \gls{clr} mode according to manufacturer specification.
 PacBio's tool chain automatically mapped all reads to GRCh38.
-Therefore, we had to extract the reads and remap them to GRCh37 using \textsf{pbmm2} version 1.4.0.
+Therefore, we had to extract the reads and remap them to GRCh37 using \textsf{pbmm2} version 1.4.0 to enable comparison between long-read and short-read data.
 We called \glspl{sv} using three different tools: \textsf{SVIM} v1.4.2, \textsf{Sniffles} v1.0.12 and \textsf{PBSV} v2.4.0.
 
-\section{Results}
+\section{Results and Discussion}
 Overall, we detected 243,987 \glspl{cnv} using \textsf{CNVnator}.
 Of these, 30 were associated with 17 biomarkers.
 
@@ -607,14 +606,10 @@ The \gls{cnv} on chromosome 3 was only detected by \textsf{SVIM}, which also cal
 The \gls{cnv} on chromosome 5 was not detected in the long-read data.
 The coverage in this region was spotty at best, in both Illumina and \gls{smrt} sequencing data.
 This might be caused by the large number of repetitive elements and consequently low mappability in this region.
-The \gls{cnv} on chromosome 16, which was exclusively called as a duplication by \textsf{CNVnator}, was not detected by an long-read caller.
+The \gls{cnv} on chromosome 16, which was exclusively called as a duplication by \textsf{CNVnator}, was not detected by any long-read caller.
 However, \textsf{SVIM} called many smaller insertions in this region, which mapped well to repetitive elements.
 This suggests that \textsf{CNVnator} might indeed have picked up on these repetitive elements and merged them into one big \gls{cnv} down the line.
 The \gls{cnv} on chromosome 19 was consistently detected by all callers.
-
-\section{Discussion}
-We called \glspl{cnv} using \gls{wgs} data in a cohort of more than 1000 individuals.
-We identified 243,987 \gls{cnv} loci, of which 30 were associated with 17 plasma protein measurements.
 
 We tried to replicate five \glspl{cnv} using long-read sequencing in 15 individuals.
 Two \glspl{cnv}, which were both deletions, could be replicated.
