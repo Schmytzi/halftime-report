@@ -384,28 +384,27 @@ Additionally, we performed a two-sample \gls{mr} test using the aforementioned m
 Because \gls{gefos} had used a different imputation panel than \gls{ukb}, we revised the set of \glspl{iv}.
 For each locus, we selected the most significant common \gls{snp} in \gls{ld} with our lead \gls{snp}.
 
-\section{Results}
-
+\section{Results and Discussion}
+\label{sec:p1discussion}
 After genotype and estradiol \gls{qc}, 147,690 males remained, of whom 134,323 had estradiol below and 13,367 above detection limit (\qty{175}{\pmol\per\l}).
 Slightly more females (163,985) remained, with 126,524 individuals having estradiol levels below detection limit and 37,461 above.
 Only 9.1\% of males and 7.9\% of postmenopausal females had detectable estradiol levels, while 71.9\% of premenopausal females had measurements.
+The low number of individuals with available measurements was due to the estradiol assay having a low sensitivity.
+A more sensitive method would have been preferable.
+For future studies aiming to elucidate the genetic factors behind estradiol levels, we would recommend the usage of an assay that can detect lower concentrations of estradiol.
+In fact, estradiol assays with a detection limit as low as \qty{2}{\pg\per\ml} (\qty{7.34}{\pmol\per\l}) are available to researchers \cite{Travison2014}.
 
 We found 15 loci on 14 chromosomes to be significantly associated ($p < 5*10^{-8}$) with estradiol levels, of which 13 were specific to males, one (\textit{MCM8}) specific to females and one (\textit{CYP3A7}) shared between both sexes.
 We identified one conditional hit each on chromosomes 2 and 15.
 12 of our \gls{gwas} hits had already established links to estradiol or steroid-hormone metabolism.
+An additional analysis using a sex-genotype interaction term revealed strong sex-specific effects.
+Most of the loci we identified have previously established links to steroid-hormone metabolism, including synthesis, conversion, transport and elimination of steroid hormones.
 
 After stratification of the female cohort into pre- and postmenopausal, we identified one locus (\textit{CYP3A7}) with significantly different effects between the two strata.
 Removal of all participants with previous cancer diagnoses did not lead to a change in our primary \gls{gwas} results.
 Lastly, adjusting our model for testosterone and \gls{shbg} levels caused the loci \textit{SHBG} and \textit{FKBP4} to lose genome-wide significance with lower effect estimates.
 The loci \textit{AR} and \textit{UGT3A1} lost significance, too, but the estimated \glspl{or} did not differ significantly.
 In the quantitative \gls{gwas} using Tobit modeling, 3 \glspl{snp} lost genome-wide significance.
-
-\section{Discussion} \label{sec:p1discussion}
-We performed a \gls{gwas} for dichotomized estradiol levels for males and females in \gls{ukb}.
-There were 15 genome-wide significant loci, 14 of which were male-specific, one female-specific and one shared between sexes.
-An additional analysis using a sex-genotype interaction term revealed strong sex-specific effects.
-We found two loci on chromosomes 2 and 15 to be independently associated with estradiol measurements independent of the lead \glspl{snp} on their respective chromosome.
-Most of the loci we identified have previously established links to steroid-hormone metabolism, including synthesis, conversion, transport and elimination of steroid hormones.
 
 \textit{CYP3A7} was significant in both males and females, indicating an important role in estrogen metabolism in both sexes.
 Interestingly, it was also the only gene to have significantly different effects in pre- and postmenopausal females.
@@ -421,7 +420,7 @@ This indicates that people with blood type O have higher estradiol levels.
 We estimated the causal effect of estradiol on \gls{bmd} using \gls{mr} in males and for the first time in females.
 We included up to 16 \glspl{snp} in our \gls{mr} analyses, a large increase from five \glspl{iv} from previous studies \cite{Nethander2018a}.
 Our effect estimates were higher in females than in males, indicating that bone metabolism depends more on estradiol in females.
-This ag<rees with the rapid decline of \gls{bmd} after menopause and subsequently the prevalence of osteoporosis in postmenopausal women.
+This agrees with the rapid decline of \gls{bmd} after menopause and subsequently the prevalence of osteoporosis in postmenopausal women.
 
 While transforming estradiol measurements into a binary phenotype enabled us to increase our cohort size, doing so prohibited us from capturing the full variation in the cohort.
 Therefore, we used applied a Tobit-I model, which incorporates quantitative measurements where available without discarding individuals below detection limit.
@@ -432,7 +431,7 @@ We identified few significant loci in females, which led to only four \glspl{iv}
 Estradiol levels in women vary wildly during the menstrual cycle, making the genetic effect hard to estimate.
 Furthermore, estrogen levels drop after menopause and are mostly determined by the time that has passed since the last menstruation \cite{Richardson2020}.
 Both of these aspects probably limited the power of our \gls{gwas}.
-Moreover, the low number of \glspl{iv} in our \gls{mr} analyses could have made the results unstable and weak to pleiotropy.
+Moreover, the low number of \glspl{iv} in our \gls{mr} analyses could have made the results unstable and increased the risk of them being affected by pleiotropy.
 
 In summary, we identified genetic loci that affect estradiol levels with strong sex-dependent effects.
 We showed the causal effect of estradiol on \gls{bmd}, supporting \gls{hrt} as a preventative treatment of osteoporosis.
