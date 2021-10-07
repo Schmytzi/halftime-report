@@ -1,4 +1,4 @@
-\documentclass[draft]{scrbook}
+\documentclass[]{scrbook}
 
 % PACKAGES
 \usepackage{typearea}
@@ -310,6 +310,14 @@ Thanks to improving quality and cost of \gls{wgs}, the interest in \glspl{cnv} h
 \section{Sequencing Technology}
 The advent of novel sequencing technologies such as PacBio \gls{smrt} promises to enable direct sequencing and therefore easier detection of large \glspl{sv}.
 
+\section{Study Cohorts}
+\subsection{UK Biobank}
+\Gls{ukb} is a long-time cohort study comprising about 500,000 participants born between 1939 and 1970 that were recruited from 2006 to 2010.
+Extensive information on lifestyle and anthropometric traits was collected.
+Participants left blood samples that were used for diverse measurements, including hormone levels, as well as genotyping of approximately 800,000 \glspl{snp}.
+
+\subsection{Northern Swedish Population Health Study}
+
 \chapter{Aims}
 The general aim is to identify novel previously unknown effects of genetic variants on human traits and diseases.
 Furthermore, there is a focus on the application of novel approaches and technologies in genomics.
@@ -345,13 +353,8 @@ Apart from \glspl{gwas}, the causal effect of hormones on diseases and disease r
 While previous \gls{mr} studies identified a beneficial effect of estradiol on \gls{bmd} in males, there have been no such studies in females due to failure to identify valid instruments for \gls{mr} analyses \cite{Eriksson2018b, Nethander2018a}.
 
 \section{Methods} \label{p1methods}
-\Gls{ukb} is a long-time cohort study comprising about 500,000 participants born between 1939 and 1970 that were recruited from 2006 to 2010.
-Extensive information on lifestyle and anthropometric traits was collected.
-Participants left blood samples that were used for diverse measurements, including hormone levels, as well as genotyping of approximately 800,000 \glspl{snp}.
-
 We used \gls{snp} data imputed using UK10K and 1000 genomes phase 3 reference panels, containing 93,093,070 \glspl{snp} overall.
-We removed \glspl{snp} which had \gls{maf} $ < 0.01$, imputation quality $ < 0.3 $, more than 5\% missing phenotype data or deviated from Hardy-Weinberg equilibrium ($p < 10^{-20}$).
-After \gls{qc}, 7,651,231 autosomal \glspl{snp} and 220,468 \glspl{snp} on chromosome~X remained. Furthermore, we restricted the analysis to unrelated Caucasian participants, excluding those with sex discordance, high heterozygosity/missingness and more than 5\% missing phenotypes. After \gls{qc}, 361,975 individuals remained, of which 167,168 were male and 194,807 were female.
+After \gls{qc}, 361,975 individuals remained, of which 167,168 were male and 194,807 were female \cite{Schmitz2021}.
 
 Only measurements that were taken from blood samples given at the first visit at the assessment center were included in the analysis.
 Estradiol was measured by two-step competitive analysis using a Beckman Coulter Unicel Dxl 800.
