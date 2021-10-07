@@ -1,4 +1,4 @@
-\documentclass[]{scrbook}
+\documentclass[draft]{scrbook}
 
 % PACKAGES
 \usepackage{typearea}
@@ -395,13 +395,6 @@ A more sensitive method would have been preferable.
 For future studies aiming to elucidate the genetic factors behind estradiol levels, we would recommend the usage of an assay that can detect lower concentrations of estradiol.
 In fact, estradiol assays with a detection limit as low as \qty{2}{\pg\per\ml} ($\approx$ \qty{7.34}{\pmol\per\l}) are available to researchers \cite{Travison2014}.
 
-Thanks to our secondary analysis using Tobit-I-modeling, we could ameliorate this problem somewhat.
-This statistical approach allowed us to make use of estradiol measurements where available while still retaining information about which missing values were below detection limit.
-This analysis mostly agreed with our primary results.
-Among males, 11 \glspl{snp} and all \glspl{snp} that were significant for females replicated.
-The effect estimates we obtained from our Tobit model were comparable to previous \glspl{gwas} of estradiol measurements \cite{Prescott2012f, Eriksson2018b,Pott2019e}.
-We argue therefore that Tobit modeling provides a viable approach for \glspl{gwas} of phenotypes for which high-sensitivity assays might not be available.
-
 We found 15 loci on 14 chromosomes to be significantly associated ($p < 5*10^{-8}$) with estradiol levels, of which 13 were specific to males, one (\textit{MCM8}) specific to females and one (\textit{CYP3A7}) shared between both sexes.
 We identified one conditional hit each on chromosomes 2 and 15.
 12 of our \gls{gwas} hits had already established links to estradiol or steroid-hormone metabolism.
@@ -412,7 +405,13 @@ After stratification of the female cohort into pre- and postmenopausal, we ident
 Removal of all participants with previous cancer diagnoses did not lead to a change in our primary \gls{gwas} results.
 Lastly, adjusting our model for testosterone and \gls{shbg} levels caused the loci \textit{SHBG} and \textit{FKBP4} to lose genome-wide significance with lower effect estimates.
 The loci \textit{AR} and \textit{UGT3A1} lost significance, too, but the estimated \glspl{or} did not differ significantly.
-In the quantitative \gls{gwas} using Tobit modeling, 3 \glspl{snp} lost genome-wide significance.
+
+Thanks to our secondary analysis using Tobit-I-modeling, we could somewhat ameliorate the problem of missing estradiol measurements.
+This statistical approach allowed us to make use of estradiol measurements where available while still retaining information about which missing values were below detection limit.
+This analysis mostly agreed with our primary results.
+Among males, 11 \glspl{snp} and all \glspl{snp} that were significant for females replicated.
+The effect estimates we obtained from our Tobit model were comparable to previous \glspl{gwas} of estradiol measurements \cite{Prescott2012f, Eriksson2018b,Pott2019e}.
+We argue therefore that Tobit modeling provides a viable approach for \glspl{gwas} of phenotypes for which high-sensitivity assays might not be available.
 
 \textit{CYP3A7} was significant in both males and females, indicating an important role in estrogen metabolism in both sexes.
 Interestingly, it was also the only gene to have significantly different effects in pre- and postmenopausal females.
