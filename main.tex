@@ -352,7 +352,7 @@ Additionally, a recent study in \gls{ukb} identified strong sex-specific genetic
 Apart from \glspl{gwas}, the causal effect of hormones on diseases and disease risk has been assessed using \gls{mr} \cite{Eriksson2018b,Ruth2020d, Nethander2018a}.
 While previous \gls{mr} studies identified a beneficial effect of estradiol on \gls{bmd} in males, there have been no such studies in females due to failure to identify valid instruments for \gls{mr} analyses \cite{Eriksson2018b, Nethander2018a}.
 
-\section{Methods} \label{p1methods}
+\section{Methods} \label{sec:p1methods}
 We used \gls{snp} data imputed using UK10K and 1000 genomes phase 3 reference panels, containing 93,093,070 \glspl{snp} overall.
 After \gls{qc}, 361,975 individuals remained, of which 167,168 were male and 194,807 were female \cite{Schmitz2021}.
 
@@ -461,7 +461,7 @@ No previous \gls{mr} studies concerning the effect of estradiol on breast or ova
 
 \section{Methods}
 We used female participants from \gls{ukb} as the base cohort for this study.
-Genotype and sample \gls{qc} were discussed in \hyperref[p1methods]{Project~I}, as we used the effect estimates for estradiol from that study.
+Genotype and sample \gls{qc} were discussed in \hyperref[sec:p1methods]{Project~I}, as we used the effect estimates for estradiol from that study.
 
 We assessed cancer incidence using diagnoses from hospital stays, death and cancer registries as well as answers from verbal interviews and touchscreen questionnaires.
 Diagnoses were encoded as codes from \gls{icd9} and \gls{icd10}.
@@ -473,7 +473,7 @@ Therefore, we had to rely on self-reported data for these cases.
 We estimated the effects of our estradiol \glspl{iv} on risk for all three cancers using \textsf{PLINK 2}.
 We applied a logistic model with additive effects with the following covariates: age, \gls{bmi}, genetic \glspl{pc} 1--10, \gls{hrt} use (never/ever/current), \gls{oc} use (never/ever/current), number of live births, menopausal status, whether the participant had undergone a hysterectomy and a binary indicator for the used genotyping array.
 
-To infer the causal effect of endogenous estradiol on cancer risk, we performed a one-sample \gls{mr} analysis using our computed effect estimates and a two-sample \gls{mr} analysis, where we used publicly available \gls{gwas} data for \gls{snp} effects on cancer risk.
+To infer the effect of endogenous estradiol on cancer risk, we performed a one-sample \gls{mr} analysis using our computed effect estimates and a two-sample \gls{mr} analysis, where we used publicly available \gls{gwas} data for \gls{snp} effects on cancer risk.
 The main analyses were performed using the \texttt{R} package \textsf{gsmr} version 1.0.8 \cite{Zhu2018}.
 We used the \texttt{R} package \textsf{MendelianRandomization} for sensitivity analyses, using the included methods: robust \gls{ivw}, weighted median and MR-Egger \cite{Olena2017}.
 Effect estimates for breast cancer were taken from summary statistics published by \gls{bcac}, whose study included 122,977 breast-cancer cases and 105,974 healthy individuals of European origin \cite{Michailidou2017}.
@@ -481,19 +481,35 @@ Endometrial-cancer estimates were taken from a \gls{gwas} published by \gls{ecac
 After removing individuals from \gls{ukb}, 12,720 cases and 46,126 controls of European ancestry remained.
 Summary statistics for ovarian-cancer risk were taken from a study by \gls{ocac} including 25,509 cases of epithelial ovarian cancer and 40,491 controls \cite{Phelan2017}.
 
-\section{Results}
-After \gls{qc}, 209,877 female \gls{ukb} participants remained, of which 13,179 had cases of breast cancer, 1,981 endometrial cancer and 1,477 ovarian cancer.
+\section{Results and Discussion}
+After \gls{qc}, 209,877 female \gls{ukb} participants remained, of which 13,179 had previously received a diagnosis of breast cancer, 1,981 of endometrial cancer and 1,477 of ovarian cancer.
 Among the four chosen \glspl{iv}, two were nominally associated ($p_{adj} < 0.05$) with breast cancer and one \gls{iv} was associated with endometrial cancer.
 In the summary statistics used for the two-sample \gls{mr}, one \gls{iv} was associated with ovarian cancer and one with endometrial cancer.
 The \gls{snp} rs10638101 was missing in \gls{bcac}'s summary statistics and had therefore be substituted by the proxy rs897797, which was in perfect \gls{ld} ($R^2 = 1$).
 
-In our primary analysis using \textsf{gsmr}, we identified a causal effect of estradiol on breast-cancer and endometrial-cancer risk, both in the one-sample and the two-sample analyses.
+\begin{table}[]
+    \centering
+    \begin{tabular}{@{}lllll@{}}
+        \toprule
+                                    & \multicolumn{2}{c}{\textbf{One-Sample}}                                              & \multicolumn{2}{c}{\textbf{Two-Sample}}                                             \\ 
+                                    & \textbf{\begin{tabular}[c]{@{}l@{}}OR \\ (95\% CI)\end{tabular}}  & \textbf{P-value} & \textbf{\begin{tabular}[c]{@{}l@{}}OR \\ (95\% CI)\end{tabular}} & \textbf{P-value} \\
+                                    \midrule
+        \textbf{Breast Cancer}      & \begin{tabular}[c]{@{}l@{}}1.30       \\ (1.07 -- 1.57)\end{tabular} & 0.0074           & \begin{tabular}[c]{@{}l@{}}1.55\\ (0.91 -- 2.65)\end{tabular}       & 0.11             \\
+        \textbf{Ovarian Cancer}     & \begin{tabular}[c]{@{}l@{}}1.19\\ (1.03 -- 1.38)\end{tabular}        & 0.018            & \begin{tabular}[c]{@{}l@{}}1.20\\ (0.99 -- 1.46)\end{tabular}       & 0.066            \\
+        \textbf{Endometrial Cancer} & \begin{tabular}[c]{@{}l@{}}2.01\\ (1.21 -- 3.31)\end{tabular}        & 0.0065           & \begin{tabular}[c]{@{}l@{}}1.45\\ (1.14 -- 1.83)\end{tabular}       & 0.0022\\
+        \bottomrule
+        \end{tabular}
+    \caption{\Gls{mr} results from our main analysis with \gls{gsmr}.
+             Adapted from \cite{Johansson2021}.}
+    \label{tab:cancer_mr}
+\end{table}
+
+In our primary analysis using \textsf{gsmr}, we identified a causal effect of estradiol on breast-cancer and endometrial-cancer risk, both in the one-sample and the two-sample analyses (\cref{tab:cancer_mr}).
 We did not detect a causal relationship for ovarian cancer.
 In the sensitivity analysis, the MR-Egger method reported a significant intercept for the two-sample \gls{mr} of endometrial cancer, which is an indication of directional pleiotropy.
 However, MR-Egger controls for this kind of pleiotropy.
 Given that the effect estimate was significant, and its direction was consistent with all over approaches, we did not see evidence of strong pleiotropy.
 
-\section{Discussion}
 In this \gls{mr} study, we showed that high levels of endogenous estradiol increase the risk for breast and endometrial cancer.
 Our study included the largest \gls{mr} analysis of estradiol's effect on breast, endometrial and ovarian cancer to date.
 
@@ -509,7 +525,7 @@ It was nominally associated with risk for ovarian cancer in \gls{ocac}.
 Our last \gls{iv}, \textit{TMEM1150B}, has an established association with age at menopause and menarche \cite{Stolk2012,Pickrell2016}.
 It was significantly associated with breast cancer in \gls{ukb} and \gls{bcac}.
 
-Despite the increased number of available \glspl{iv} for our \gls{mr} study, it was still limited by the overall small set of four \glspl{iv}.
+Our \gls{mr} study was still limited by the overall small set of four \glspl{iv}.
 This made our study vulnerable to directional pleiotropy.
 In particular, the MR-Egger intercept of our two-sample analysis for endometrial cancer showed indications of pleiotropy.
 Once larger cohorts or more quantitative estradiol measurements are available, it should be possible to identify more \glspl{iv} and alleviate this problem.
@@ -517,7 +533,7 @@ Furthermore, estradiol levels fluctuate wildly in women over the course of the m
 This and the strong correlation between estradiol levels in postmenopausal women and time since menopause make the detection of genetic \glspl{iv} complicated.
 
 Our analyses showed no significant causal effect on estradiol on ovarian cancer.
-However, the effect estimates from both the one- and two-sample tests showed a consistent effect direction and the result from the two-sample \gls{mr} would have passed a one-sided test.
+However, the effect estimates from both the one- and two-sample tests showed a consistent effect direction and the result from the two-sample \gls{mr} would have passed a one-sided test (\cref{tab:cancer_mr}).
 Therefore, we cannot conclude that there is no causal effect of estradiol on ovarian cancer.
 However, we can safely say that the observed effect is weaker than the effects on breast and endometrial cancer \cite{Trabert2016,Key2011,Rodriguez2019}.
 
