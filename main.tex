@@ -635,23 +635,26 @@ While the \glspl{cnv} that were originally called did not validate \textit{per s
 One could argue that this can still be considered a positive result that would not be trivial to detect.
 
 We might be able to further elucidate the nature of the detected \glspl{cnv} by assembling the genomes of the individuals we sequenced using \gls{smrt} technology or a combination of both sequencing techniques.
-No long-read \gls{sv} caller, except for \textsf{PBSV}, actually reports \glpl{cnv} as such and consequently, \glspl{cnv} and \glspl{cn} have to be inferred from the variants they do report, such as duplications, insertions and breakends.
+No long-read \gls{sv} caller, except for \textsf{PBSV}, actually reports \glspl{cnv} as such and consequently, \glspl{cnv} and \glspl{cn} have to be inferred from the variants they do report, such as duplications, insertions and breakends.
 An assembly might allow us to characterize the copy numbers and break points better.
 
 
 \chapter{Concluding Remarks}
-We investigated the role of genetic variants in human diseases through methods that supplement or complement traditional \glspl{gwas}.
+We investigated the role of genetic variants in human diseases through methods that supplement, complement and extend conventional \glspl{gwas}.
 We identified the effect of genetic variants on estradiol levels and demonstrated the causal effect of estrogen on \gls{bmd} and certain cancers.
 Furthermore, we identified \glspl{cnv}, which are not covered by common \glspl{gwas}, and characterized their association with plasma protein biomarkers.
 
 While \glspl{gwas} have enabled groundbreaking research in the field of genetic epidemiology, it is becoming more apparent that there is a large part of heritability of certain traits and disease risk that they cannot explain.
 To increase their statistical power, increasingly larger cohorts are needed.
-And even with larger study cohorts, variants such as \glspl{cnv} are generally hard to detect and quantify.
-Short-read sequencing, which has driven down cost and allowed for the detection of rare \gls{snp} not covered by \gls{snp} arrays, has issues correctly capturing large \glspl{sv}.
+
+Variants such as \glspl{cnv} are generally hard to detect and quantify.
+Short-read sequencing, which has driven down cost and allowed for the detection of rare \glspl{snp} not covered by \gls{snp} arrays, has issues correctly capturing large \glspl{sv}.
 This is in part due to their size but also due to many \glspl{sv} being hard to map because they lie in regions with many repeats or low complexity.
+
 Long-read sequencing promises to ameliorate many problems of short reads but is still too expensive to be used in the same extent.
-These technologies are still experimental and there are no established best practices for their application in human genetics, yet.
-However, the advent of \gls{wgs}, machine learning and other methods to deal with the large amounts of data that will be generated, will make it possible to gain even deeper insights into the genetic architecture of human health.
+While these sequencing technologies have made considerable advances over the last few years, there are no universally accepted standards like for short-read sequencing and \gls{gwas} \cite{DeCoster2021}.
+
+The improving accuracy and cost of \gls{wgs}, along with novel approaches such as haplotype-resolved and telomere-to-telomere assemblies, will make it possible to gain even deeper insights into the genetic architecture of human health \cite{Logsdon2021,Porubsky2021}.
 
 \backmatter
 
