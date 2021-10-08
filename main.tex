@@ -43,7 +43,7 @@
 }
 
 % METADATA
-\title{The Effect of Genetic Variants on the Pathogenesis of Common Complex Diseases}
+\title{Unraveling the Etiology of Complex Traits by Extending GWAS to Causal Inference and Copy Number Variation Analysis}
 \author{Daniel Schmitz}
 \date{2021-10-15}
 
@@ -590,14 +590,16 @@ We included sex and age as covariates and applied an adjusted significance thres
 \end{table}
 
 We selected 15 individuals to be resequenced using PacBio \gls{smrt} sequencing based on five \gls{cnv} that showed strong associations, were highly polymorphic and included both deletions and duplications (\cref{tab:primecnvs}).
+The individuals were chosen to capture as many \glspl{cn} as possible.
 Long-read sequencing was performed on a PacBio SEQUEL II system in \gls{clr} mode according to manufacturer specification.
 PacBio's tool chain automatically mapped all reads to GRCh38.
 Therefore, we had to extract the reads and remap them to GRCh37 using \textsf{pbmm2} version 1.4.0 to enable comparison between long-read and short-read data.
 We called \glspl{sv} using three different tools: \textsf{SVIM} v1.4.2, \textsf{Sniffles} v1.0.12 and \textsf{PBSV} v2.4.0.
 
 \section{Results and Discussion}
-Overall, we detected 243,987 \glspl{cnv} using \textsf{CNVnator}.
-Of these, 30 were associated with 17 biomarkers.
+Overall, 872 individuals had both genotyping and protein data which passed \gls{qc}.
+\textsf{CNVnator} reported 243,987 \glspl{cnv}, which after post-processing resulted in 23,831 variants to be included in our analysis.
+We found 30 \glspl{cnv} to be associated with 17 biomarkers.
 
 The quality of our long-read sequencing results was mixed.
 While most samples received high coverage, in three cases less than half of all ZMWs produced high-quality reads.
@@ -611,15 +613,11 @@ However, \textsf{SVIM} called many smaller insertions in this region, which mapp
 This suggests that \textsf{CNVnator} might indeed have picked up on these repetitive elements and merged them into one big \gls{cnv} down the line.
 The \gls{cnv} on chromosome 19 was consistently detected by all callers.
 
-We tried to replicate five \glspl{cnv} using long-read sequencing in 15 individuals.
-Two \glspl{cnv}, which were both deletions, could be replicated.
-Two further \glspl{cnv} appeared not to be singular variants but instead clusters of repetitive elements.
-The last \gls{cnv} did not replicate at all.
 In general, deletions seem easier to detect and verify than duplications.
 
 \section{Future Work}
 This project has not concluded fully.
-To make use of the results we have got so far, it would be interesting to functionally annotate the detected \glspl{cnv}.
+To make use of the results we have got so far, it would be interesting to investigate the detected \glspl{cnv} for effects of known functional elements in the genome.
 This would help elucidate the pathways through which they affect their associated proteins.
 
 \chapter{Project IV}
@@ -631,23 +629,27 @@ In general, further research into \glspl{cnv} and/or long-read sequencing, possi
 It might be worthwhile to develop a method that allows for easier \gls{cnv} validation.
 So far, this is a manual process, which is very time-consuming.
 Devising such a method would also benefit future research in this field.
+However, it is difficult to exactly formalize when a \gls{cnv} can be considered validated.
+For instance, the \glspl{cnv} that were called in short-read data but presented as groups of short duplications in long-read data are problematic cases.
+While the \glspl{cnv} that were originally called did not validate \textit{per se}, there were in fact smaller variants that just happened to present as one large \gls{cnv}.
+One could argue that this can still be considered a positive result that would not be trivial to detect.
 
-We might be able to further elucidate the nature of the detected \glspl{cnv} by assembling the genomes of the individuals we sequenced using \gls{smrt} technology.
-This would allow us to characterize the copy numbers and break points better.
+We might be able to further elucidate the nature of the detected \glspl{cnv} by assembling the genomes of the individuals we sequenced using \gls{smrt} technology or a combination of both sequencing techniques.
+No long-read \gls{sv} caller, except for \textsf{PBSV}, actually reports \glpl{cnv} as such and consequently, \glspl{cnv} and \glspl{cn} have to be inferred from the variants they do report, such as duplications, insertions and breakends.
+An assembly might allow us to characterize the copy numbers and break points better.
 
-Lastly, it might be interesting to investigate \glspl{cnv} in another dataset, for instance the \gls{wes} or even \gls{wgs} data to be released by \gls{ukb}.
 
 \chapter{Concluding Remarks}
 We investigated the role of genetic variants in human diseases through methods that supplement or complement traditional \glspl{gwas}.
-We identified the effect of genetic variants on estradiol levels using a transformed binary phenotype and demonstrated the causal effect of estrogen on \gls{bmd} and certain cancers.
+We identified the effect of genetic variants on estradiol levels and demonstrated the causal effect of estrogen on \gls{bmd} and certain cancers.
 Furthermore, we identified \glspl{cnv}, which are not covered by common \glspl{gwas}, and characterized their association with plasma protein biomarkers.
 
-While \glspl{gwas} have enabled groundbreaking research in the field of medical genetics, it is becoming more apparent that there is a large part of heritability of certain traits and disease risk that they cannot explain.
+While \glspl{gwas} have enabled groundbreaking research in the field of genetic epidemiology, it is becoming more apparent that there is a large part of heritability of certain traits and disease risk that they cannot explain.
 To increase their statistical power, increasingly larger cohorts are needed.
 And even with larger study cohorts, variants such as \glspl{cnv} are generally hard to detect and quantify.
-Short-read sequencing, which has driven down cost and improved \gls{snp} detection, has issues correctly capturing large \glspl{sv}.
+Short-read sequencing, which has driven down cost and allowed for the detection of rare \gls{snp} not covered by \gls{snp} arrays, has issues correctly capturing large \glspl{sv}.
 This is in part due to their size but also due to many \glspl{sv} being hard to map because they lie in regions with many repeats or low complexity.
-Long-read sequencing promises to ameliorate many problems of short reads but is not mature enough to be used in the same extent.
+Long-read sequencing promises to ameliorate many problems of short reads but is still too expensive to be used in the same extent.
 These technologies are still experimental and there are no established best practices for their application in human genetics, yet.
 However, the advent of \gls{wgs}, machine learning and other methods to deal with the large amounts of data that will be generated, will make it possible to gain even deeper insights into the genetic architecture of human health.
 
