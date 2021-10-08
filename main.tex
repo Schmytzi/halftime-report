@@ -201,7 +201,7 @@ However, the method is not restricted to these kinds of variants.
 
 To perform a \gls{gwas}, it is first necessary to genotype a large cohort of individuals.
 Usually, this is done using \gls{snp} arrays, which only allow for the detection of previously identified variants but are generally cheap and reliable.
-Other genotyping approaches which use \gls{ngs}, such as \gls{wgs} and \gls{wes}, have increased in popularity but are still too expensive for widespread use in large studies.
+Other genotyping approaches which use \gls{ngs}, such as \gls{wgs} and \gls{wes}, have increased in popularity and have recently become feasible for large-scale studies.
 After genotyping, \glspl{snp} that were not present on the genotyping array are often imputed from the ones that were present based on \gls{ld}.
 
 Suitable phenotype for \gls{gwas} can be quantitative traits, e.g. height or levels of certain proteins in blood, or binary, e.g. the presence of a certain disease.
@@ -257,14 +257,13 @@ There are two major designs for \gls{mr} studies \cite{Burgess2019}.
 One-sample \gls{mr} uses exposure and outcome data from the same cohort.
 While this allows for an easy study design (you only need to measure an additional phenotype), one-sample \gls{mr} studies are often affected by the so-called winner's curse bias, which leads to overestimated effect sizes.
 
-Two-sample \gls{mr} studies on the other hand use \gls{gwas} summary statistics from other cohorts.
+Two-sample \gls{mr} studies on the other hand use \gls{gwas} summary statistics from two different cohorts, one for the \gls{snp} effects on the exposure and one for the effects on the outcome, respectively.
 Thanks to platforms like the GWAS Catalog and MR Base, summary statistics to use for two-sample \gls{mr} studies are easily available.
 While they avoid the winner's curse bias, two-sample approaches tend to be biased towards null.
-Furthermore, differences in population structure or \gls{ld} patterns can negatively impact statistical power.
 Often, genotyped or imputed \glspl{snp} are not the same between studies.
 This makes it necessary to find proxy \glspl{snp} as replacement for lead \glspl{snp} that are not present in both studies' data.
 
-\Gls{mr} studies can either be individual-based, i.e. use exposure and outcome measurements, or summary-based, i.e. use effect estimates from previous \gls{gwas}.
+\Gls{mr} studies can either be individual-based, which predict the exposure measurement for each individual based on their alleles and use this prediction as a predictor for the outcome, or summary-based, i.e. use effect estimates from previous \gls{gwas}.
 The summary-based approach has become the more popular one, thanks to the wide availability of summary statistics online.
 In short, this approach estimates $\beta$ based on the observed effect $\gamma_j$ of the variant $G_j$ on $X$ and its effect $\Gamma_j$ on $Y$ (\cref{fig:two-sample-mr}).
 If $X$ has a causal effect on $Y$, then the calculated $\beta$ should be constant for all $G_j$.
