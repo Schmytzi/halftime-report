@@ -221,7 +221,7 @@ Increasingly larger cohorts such as \gls{ukb} contributed to the continuously im
 As of the time of writing, the GWAS Catalog---the largest database of \gls{gwas} results---contains 293,040 associations of \glspl{snp} and \glspl{indel} to phenotypes \cite{Buniello2019}.
 
 \section{Mendelian Randomization}
-In addition to elucidation the effect of \glspl{snp} on traits and disease risk, \gls{gwas} results can also be leveraged to infer the causal relationship between traits through an approach called \gls{mr} (\cref{fig:mr}).
+In addition to elucidation the effect of \glspl{snp} on traits and disease risk, \gls{gwas} results can also be leveraged to infer associations between traits through an approach called \gls{mr} (\cref{fig:mr}).
 \Gls{mr} studies apply a design based on randomized controlled trials to estimate the effect of an exposure $X$ on an outcome $Y$ using genetic variants as \glspl{iv}.
 The underlying reasoning is that if there is a variant that affects the exposure, then it should indirectly and proportionally affect the outcome through the exposure.
 In order for a variant to be a valid \gls{iv}, it must meet the following assumptions:
@@ -301,9 +301,11 @@ However, associations of longer \glspl{cnv} spanning multiple \si{\kilo\base} or
     \includegraphics[width=\textwidth]{img/cnv_example.png}
     \caption{Example of a \gls{cnv}.
         Each arrow represents a copy of the sequence of interest.
-        Assuming a diploid genome, the reference has \gls{cn} 4.
-        Individual 1 has more copies, which is called a \textit{duplication} or \textit{\gls{cn} gain}.
-        Individual 2 has lost a copy.
+        There is one copy in the (haploid) reference.
+        In a diploid individual, this corresponds to \gls{cn} 2 (Individual 1).
+        Individual 2 is homozygous for two copies of the sequence (\gls{cn} 4).
+        An increase in the number of copies is called a \textit{duplication} or \textit{\gls{cn} gain}.
+        Individual 3 has lost a copy of the sequence on one chromosome (\gls{cn} 1).
         This is called a \textit{deletion} or \textit{\gls{cn} loss}.}
         \label{fig:cnv}
 \end{figure}
