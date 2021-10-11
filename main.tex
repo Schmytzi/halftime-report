@@ -241,7 +241,7 @@ In order for a variant to be a valid \gls{iv}, it must meet the following assump
 
 \begin{figure}
     \centering
-    \includegraphics[width=.5\textwidth]{img/mr_assumptions.png}
+    \includegraphics[width=.5\textwidth]{img/mr_graph.pdf}
     \caption{Graphical representation of the assumptions of \gls{mr}.
     The strength $\beta$ of the causal effect of $X$ on $Y$ is to be estimated.
     The genetic variants $G$ affect $X$ (IV1) but neither any confounders $U$ (IV2) nor $Y$ (IV3) directly.
@@ -251,7 +251,7 @@ In order for a variant to be a valid \gls{iv}, it must meet the following assump
 
 \begin{figure}
     \centering
-    \includegraphics[width=.5\textwidth]{img/two_sample_mr.png}
+    \includegraphics[width=.5\textwidth]{img/two_sample_mr.pdf}
     \caption{Graphical representation of the summary-based \gls{mr} approach.
         $\Gamma_j$ refers to the effect size estimated by a \gls{gwas}, which only assesses association, not causality, and not a pleiotropic effect of $G$ on $Y$.
         The effect $\beta$ can be calculated according to $\beta=\frac{\Gamma_j}{\gamma_j}$.
@@ -281,7 +281,7 @@ This makes it necessary to find proxy \glspl{snp} as replacement for lead \glspl
 
 \Gls{mr} studies can either be individual-based, which predict the exposure measurement for each individual based on their alleles and use this prediction as a predictor for the outcome, or summary-based, i.e. use effect estimates from previous \gls{gwas}.
 The summary-based approach has become the more popular one, thanks to the wide availability of summary statistics online.
-In short, this approach estimates $\beta$ based on the observed effect $\gamma_j$ of the variant $G_j$ on $X$ and its effect $\Gamma_j$ on $Y$ (\cref{fig:two-sample-mr}).
+In short, this approach estim ates $\beta$ based on the observed effect $\gamma_j$ of the variant $G_j$ on $X$ and its effect $\Gamma_j$ on $Y$ (\cref{fig:two-sample-mr}).
 If $X$ has a causal effect on $Y$, then the calculated $\beta$ should be constant for all $G_j$ (\cref{fig:twosample-example}).
 
 There are multiple algorithms to estimate the causality between $X$ and $Y$ based on summary statistics.
