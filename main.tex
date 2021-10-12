@@ -533,6 +533,7 @@ After removing individuals from \gls{ukb}, 12,720 cases and 46,126 controls of E
 Summary statistics for ovarian-cancer risk were taken from a study by \gls{ocac} including 25,509 cases of epithelial ovarian cancer and 40,491 controls \cite{Phelan2017}.
 
 \section{Results and Discussion}
+\subsection{General MR Results}
 After \gls{qc}, 209,877 female \gls{ukb} participants remained, of which 13,179 had previously received a diagnosis of breast cancer, 1,981 of endometrial cancer and 1,477 of ovarian cancer.
 Among the four chosen \glspl{iv}, two were nominally associated ($p_{adj} < 0.05$) with breast cancer and one \gls{iv} was associated with endometrial cancer.
 In the summary statistics used for the two-sample \gls{mr}, one \gls{iv} was associated with ovarian cancer and one with endometrial cancer.
@@ -561,10 +562,7 @@ In the sensitivity analysis, the MR-Egger method reported a significant intercep
 However, MR-Egger controls for this kind of pleiotropy.
 Given that the effect estimate was significant, and its direction was consistent with all over approaches, we did not see evidence of strong pleiotropy.
 
-In this \gls{mr} study, we showed that high levels of endogenous estradiol increase the risk for breast and endometrial cancer.
-Our study included the largest \gls{mr} analysis of estradiol's effect on breast, endometrial and ovarian cancer to date.
-
-We increased the number of \glspl{iv} from one to four.
+\subsection{Cancer-Specific Results}
 Our first \gls{iv} was annotated to \textit{CYP3A7}, which was discussed in \cref{sec:p1discussion}.
 It had a nominally significant association to breast and endometrial cancer in \gls{ukb}, \gls{bcac} and \gls{ecac}.
 \Gls{iv} number 2 was \textit{MCM8}, which has a strong association to age at menopause \cite{Chen2014}.
@@ -576,17 +574,18 @@ It was nominally associated with risk for ovarian cancer in \gls{ocac}.
 Our last \gls{iv}, \textit{TMEM1150B}, has an established association with age at menopause and menarche \cite{Stolk2012,Pickrell2016}.
 It was significantly associated with breast cancer in \gls{ukb} and \gls{bcac}.
 
+Our analyses showed no significant causal effect on estradiol on ovarian cancer.
+However, the effect estimates from both the one- and two-sample tests showed a consistent effect direction and the result from the two-sample \gls{mr} would have passed a one-sided test (\cref{tab:cancer_mr}).
+Therefore, we cannot conclude that there is no causal effect of estradiol on ovarian cancer.
+However, we can safely say that the observed effect is weaker than the effects on breast and endometrial cancer \cite{Trabert2016,Key2011,Rodriguez2019}.
+
+\subsection{Limitations}
 Our \gls{mr} study was still limited by the overall small set of four \glspl{iv}.
 This made our study vulnerable to directional pleiotropy.
 In particular, the MR-Egger intercept of our two-sample analysis for endometrial cancer showed indications of pleiotropy.
 Once larger cohorts or more quantitative estradiol measurements are available, it should be possible to identify more \glspl{iv} and alleviate this problem.
 Furthermore, estradiol levels fluctuate wildly in women over the course of the menstrual cycle.
 This and the strong correlation between estradiol levels in postmenopausal women and time since menopause make the detection of genetic \glspl{iv} complicated.
-
-Our analyses showed no significant causal effect on estradiol on ovarian cancer.
-However, the effect estimates from both the one- and two-sample tests showed a consistent effect direction and the result from the two-sample \gls{mr} would have passed a one-sided test (\cref{tab:cancer_mr}).
-Therefore, we cannot conclude that there is no causal effect of estradiol on ovarian cancer.
-However, we can safely say that the observed effect is weaker than the effects on breast and endometrial cancer \cite{Trabert2016,Key2011,Rodriguez2019}.
 
 In summary, we identified a causal effect of estradiol on the risk of breast and endometrial cancer using a \gls{mr} approach in \gls{ukb}, \gls{bcac} and \gls{ecac} cohorts.
 Our findings support prior research regarding the carcinogenic effects of estrogen.
