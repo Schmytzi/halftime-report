@@ -1,4 +1,4 @@
-\documentclass[]{scrbook}
+\documentclass[draft]{scrbook}
 
 % PACKAGES
 \usepackage{typearea}
@@ -100,6 +100,8 @@
 \newacronym{mr}{MR}{Mendelian Randomization}
 \newacronym{wes}{WES}{whole-exome sequencing}
 \newacronym{cn}{CN}{copy number}
+\newacronym{sbs}{SBS}{sequencing by synthesis}
+\newacronym{pcr}{PCR}{polymerase chain reaction}
 
 % START OF DOCUMENT
 \begin{document}
@@ -324,7 +326,23 @@ Common array-based workflows can only detect \glspl{cnv} with a size of at least
 Thanks to improving quality and cost of \gls{wgs}, the interest in \glspl{cnv} has increased dramatically.
 
 \section{Sequencing Technology}
-The advent of novel sequencing technologies such as PacBio \gls{smrt} promises to enable direct sequencing and therefore easier detection of large \glspl{sv}.
+Sequencing technology has changed a lot over the last two decades.
+While most of the Human Genome Project's first assembly was sequenced using Sanger sequencing, this technology proved to be too expensive and slow to allow for widespread use for human genomics \cite{Lander2001}.
+
+Over the following years, technological advances enabled the emergence of a high-throughput sequencing, or \gls{ngs}.
+These technologies allow to sequence billions of bases at a time while reducing cost.
+Over the years, Illumina and their technology based on \gls{sbs} have become the market leader in this segment.
+Their platform produces short paired-end reads with a usual length of around \qty{150}{\base} and leverages increasing computational power to align these short reads to the human genome.
+While Illumina sequencing is highly accurate for the detection of \glspl{snp} and \glspl{indel}, they are too short to reliably represent large \glspl{sv}.
+Moreover, the need for amplification via \gls{pcr} of the DNA to be sequenced makes Illumina sequencing vulnerable to \gls{pcr} amplification bias.
+This leads to low coverage in regions with very high or low GC content \cite{Aird2011}.
+
+The advent of long-read sequencing technologies such as PacBio \gls{smrt} promises to enable direct sequencing and therefore easier detection of large \glspl{sv}.
+Costs are still relatively high but keep going down.
+Yields increase.
+
+Both technologies can also be used in combination.
+You can e.g. do high-coverage \gls{wgs} with Illumina and low-coverage with PacBio to resolve \glspl{sv}.
 
 \section{Study Cohorts}
 \subsection{UK Biobank}
