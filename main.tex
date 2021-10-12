@@ -338,11 +338,19 @@ While Illumina sequencing is highly accurate for the detection of \glspl{snp} an
 Moreover, the need for amplification via \gls{pcr} of the DNA to be sequenced makes Illumina sequencing vulnerable to \gls{pcr} amplification bias.
 This leads to low coverage in regions with very high or low GC content \cite{Aird2011}.
 
+Several approaches for \gls{cnv} detection have been developed for short-read alignments.
+In general, these can be divided into two major groups: depth-based methods (e.g. \textsf{CNVnator} \cite{Abyzov2011b}), which identify \glspl{cnv} through regions of abnormally high or low coverage, and read-based methods (e.g. \textsf{Manta} \cite{Chen2016a}), which rely on anomalies in fragment size and read-pair orientation.
+
 Recently, third-generation sequencing technologies, in particular \gls{pacbio} \gls{smrt} sequencing and Oxford Nanopore, have matured and become usable for larger research projects.
 They are able to produce longer reads than previous technologies.
 \Gls{smrt} reads usually range between \qtyrange{15}{20}{\kilo\base}, while Nanopore can produce reads of up to \qty{4}{\mega\base} \cite{Wenger2019,Payne2019}.
 Furthermore, amplification-free protocols have been developed for long-read sequencing, which avoid the issues caused by \gls{pcr} amplification bias \cite{Hoijer2018}.
 However, they suffer from low read accuracy, which makes them less suitable for \gls{snp} calling \cite{Rang2018}.
+
+Several \gls{sv} callers exist for long-read alignments.
+These include \textsf{Sniffles}, \textsf{SVIM} and \gls{pacbio}'s own \textsf{PBSV} \cite{Heller2019a,Sedlazeck2018a}.
+They differ in how they incorporate \gls{sv} signatures from single reads and clusters of reads.
+Furthermore, \textsf{PBSV} is the only caller to directly report \glspl{cnv} and \glspl{cn}.
 
 \section{Study Cohorts}
 \subsection{UK Biobank}
@@ -655,6 +663,9 @@ In general, deletions seem easier to detect and verify than duplications.
 This project has not concluded fully.
 To make use of the results we have got so far, it would be interesting to investigate the detected \glspl{cnv} for effects of known functional elements in the genome.
 This would help elucidate the pathways through which they affect their associated proteins.
+
+Moreover, the data we alreay have might allow us to identify \glspl{snp} that tag or are in \gls{ld} with \glspl{cnv} of interest.
+This might enable the creation of a larger imputation framework for \glspl{cnv} by use of \gls{ngs}-derived \gls{snp} data.
 
 \chapter{Project IV}
 \section{Future Work}
