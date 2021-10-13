@@ -37,6 +37,11 @@
 \defaultfontfeatures{Ligatures={Required, Common, TeX}}
 \addbibresource{Half-Time Thesis.bib}
 \DeclareBibliographyCategory{myworks}
+\DeclareFieldFormat{labelnumber}{%
+  \ifinteger{#1}
+    {\number\numexpr#1-3\relax}
+    {#1}}
+
 \DeclareSIUnit{\litre}{\ell}
 \DeclareSIUnit{\base}{bp}
 \sisetup{
@@ -395,8 +400,9 @@ In this project, we aimed to identify variants affecting estradiol.
 Additionally, we aimed to estimate the causal effect of estrogen on \gls{bmd}.
 
 \section{Methods} \label{sec:p1methods}
+We used data from \gls{ukb} to perform this study.
 We used \gls{snp} data imputed using UK10K and 1000 genomes phase 3 reference panels, containing 93,093,070 \glspl{snp} overall.
-After \gls{qc}, 361,975 individuals remained, of which 167,168 were male and 194,807 were female \cite{Schmitz2021}.
+After \gls{qc}, 361,975 individuals remained, of which 167,168 were male and 194,807 were female.
 
 Only measurements that were taken from blood samples given at the first visit at the assessment center were included in the analysis.
 Estradiol was measured by two-step competitive analysis using a Beckman Coulter Unicel Dxl 800.
@@ -546,8 +552,7 @@ The \gls{snp} rs10638101 was missing in \gls{bcac}'s summary statistics and had 
         \textbf{Endometrial Cancer} & \begin{tabular}[c]{@{}l@{}}2.01\\ (1.21 -- 3.31)\end{tabular}        & 0.0065           & \begin{tabular}[c]{@{}l@{}}1.45\\ (1.14 -- 1.83)\end{tabular}       & 0.0022\\
         \bottomrule
         \end{tabular}
-    \caption{\Gls{mr} results from our main analysis with \gls{gsmr}.
-             Adapted from \cite{Johansson2021}.}
+    \caption{\Gls{mr} results from our main analysis with \gls{gsmr}.}
     \label{tab:cancer_mr}
 \end{table}
 
