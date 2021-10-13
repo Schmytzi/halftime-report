@@ -1,4 +1,4 @@
-\documentclass[twoside=false]{scrbook}
+\documentclass[draft, twoside=false]{scrbook}
 
 % PACKAGES
 \usepackage{typearea}
@@ -36,6 +36,7 @@
 }
 \defaultfontfeatures{Ligatures={Required, Common, TeX}}
 \addbibresource{Half-Time Thesis.bib}
+\DeclareBibliographyCategory{myworks}
 \DeclareSIUnit{\litre}{\ell}
 \DeclareSIUnit{\base}{bp}
 \sisetup{
@@ -178,8 +179,8 @@
 This thesis is based on the following papers and projects, referred to in the text by their numbers.
 
 \begin{enumerate}[label=\Roman*.]
-    \item \fullcite{Schmitz2021}
-    \item \fullcite{Johansson2021}
+    \item \fullcite{Schmitz2021} \addtocategory{myworks}{Schmitz2021}
+    \item \fullcite{Johansson2021} \addtocategory{myworks}{Johansson2021}
     \item Characterizing Copy Number Variations using Next- and Third-Generation Sequencing and their Association with Plasma Biomarkers
     \item Unspecified
 \end{enumerate}
@@ -187,7 +188,7 @@ This thesis is based on the following papers and projects, referred to in the te
 \section*{Related Publications}
 The following publications are not part of the main research project.
 \begin{itemize}
-    \item \fullcite{Kierczak2021}
+    \item \fullcite{Kierczak2021} \addtocategory{myworks}{Kierczak2021}
 \end{itemize}
 
 \tableofcontents
@@ -528,7 +529,6 @@ After removing individuals from \gls{ukb}, 12,720 cases and 46,126 controls of E
 Summary statistics for ovarian-cancer risk were taken from a study by \gls{ocac} including 25,509 cases of epithelial ovarian cancer and 40,491 controls \cite{Phelan2017}.
 
 \section{Results and Discussion}
-\subsection{General MR Results}
 After \gls{qc}, 209,877 female \gls{ukb} participants remained, of which 13,179 had previously received a diagnosis of breast cancer, 1,981 of endometrial cancer and 1,477 of ovarian cancer.
 Among the four chosen \glspl{iv}, two were nominally associated ($p_{adj} < 0.05$) with breast cancer and one \gls{iv} was associated with endometrial cancer.
 In the summary statistics used for the two-sample \gls{mr}, one \gls{iv} was associated with ovarian cancer and one with endometrial cancer.
@@ -610,24 +610,7 @@ Lastly, adjacent windows that had consistent copy numbers across individuals wer
 We identified copy number-biomarker associations using a linear regression model (\texttt{glm} function in \texttt{R} version 4.3.4).
 We included sex and age as covariates and applied an adjusted significance threshold of \(p < 4.79*10^{-9}\), which corresponds to the general significance threshold of $p < 0.05$ adjusted for 10,438,413 tests (438 proteins $\times$ 23,831 \glspl{cnv}).
 
-\begin{table}
-    \centering
-    \begin{tabular}{r r l}
-        \toprule
-        \textbf{Chromosome} & \textbf{CNV Size (bp)} & \textbf{Associated Biomarker} \\
-        \midrule
-        2 & 2,800 & GPNMB \\
-        3 & 4,200 & PD-L2 \\
-        5 & 92,000 & IL18 \\
-        16 & 15,400 & SULT1A1 \\
-        19 & 5,200 & pIgR \\
-        \bottomrule
-    \end{tabular}
-    \caption{The \glspl{cnv} that were used to select 15 individuals for resequencing.}
-    \label{tab:primecnvs}
-\end{table}
-
-We selected 15 individuals to be resequenced using \gls{pacbio} \gls{smrt} sequencing based on five \gls{cnv} that showed strong associations, were highly polymorphic and included both deletions and duplications (\cref{tab:primecnvs}).
+We selected 15 individuals to be resequenced using \gls{pacbio} \gls{smrt} sequencing based on five \gls{cnv} that showed strong associations, were highly polymorphic and included both deletions and duplications (\cref{tab:cngwas}).
 The individuals were chosen to capture as many \glspl{cn} as possible.
 Long-read sequencing was performed on a \gls{pacbio} SEQUEL II system in \gls{clr} mode according to manufacturer specification.
 \gls{pacbio}'s tool chain automatically mapped all reads to GRCh38.
@@ -635,9 +618,47 @@ Therefore, we had to extract the reads and remap them to GRCh37 using \textsf{pb
 We called \glspl{sv} using three different tools: \textsf{SVIM} v1.4.2, \textsf{Sniffles} v1.0.12 and \textsf{PBSV} v2.4.0.
 
 \section{Results and Discussion}
+\begin{table}[]
+    \begin{tabular}{@{}lrrrrrr@{}}
+        \toprule
+        \textbf{Biomarker} & \textbf{Chr} & \textbf{Start} & \textbf{End} & \textbf{Beta} & \textbf{SE} & \textbf{P Value} \\
+        \midrule
+        GPNMB    & 2  & 89,613,000  & 89,613,200  & -9.91E-01 & 1.56E-01 & 3.33E-10 \\
+        PD-L2    & 3  & 98,411,600  & 98,411,800  & 4.09E-01  & 4.47E-02 & 3.92E-19 \\
+        IL-18    & 5  & 70,393,100  & 70,393,300  & 4.18E-01  & 5.61E-02 & 2.38E-13 \\
+        ST1A1    & 16 & 28,613,645  & 28,613,845  & 7.86E-01  & 6.93E-02 & 1.61E-27 \\
+        hOSCAR   & 19 & 54,558,900  & 54,559,100  & -7.21E-01 & 6.27E-02 & 1.61E-28 \\
+        \midrule
+        CD48     & 1  & 158,867,600 & 158,867,800 & -2.82E-01 & 4.71E-02 & 3.15E-09 \\
+        FCRLB    & 1  & 161,640,580 & 161,640,780 & 6.17E-01  & 9.11E-02 & 2.42E-11 \\
+        LY9      & 1  & 179,455,600 & 179,455,800 & 5.36E-01  & 8.86E-02 & 2.17E-09 \\
+        ICAM-2   & 3  & 98,410,600  & 98,410,800  & 6.48E-01  & 3.95E-02 & 5.67E-53 \\
+        Siglec-9 & 3  & 98,411,800  & 98,413,400  & 6.82E-01  & 4.17E-02 & 3.48E-52 \\
+        CD200R1  & 3  & 98,411,800  & 98,413,400  & 5.08E-01  & 4.45E-02 & 3.71E-28 \\
+        VEGFR-3  & 3  & 98,414,600  & 98,414,800  & 5.96E-01  & 4.17E-02 & 1.10E-41 \\
+        ICAM-3   & 3  & 98,899,900  & 98,900,100  & 3.96E-01  & 5.52E-02 & 1.45E-12 \\
+        AMBP     & 5  & 745,070     & 745,270     & -2.84E-01 & 4.51E-02 & 5.05E-10 \\
+        MIC-AB   & 6  & 32,496,600  & 32,496,800  & 6.19E-01  & 6.69E-02 & 3.35E-19 \\
+        CCL19    & 6  & 32,522,200  & 32,522,400  & -4.67E-01 & 5.37E-02 & 1.93E-17 \\
+        FR-gamma & 11 & 63,443,100  & 63,445,300  & -1.03E+00 & 9.83E-02 & 5.17E-24 \\
+        FR-gamma & 11 & 67,331,355  & 67,331,955  & -1.23E+00 & 1.03E-01 & 1.64E-30 \\
+        CNTN1    & 12 & 45,909,600  & 45,909,800  & -2.85E-01 & 4.69E-02 & 1.73E-09 \\
+        CCL4     & 17 & 36,392,670  & 36,394,670  & 1.45E-01  & 2.29E-02 & 4.65E-10 \\
+        CCL15    & 17 & 39,210,800  & 39,211,000  & -9.21E-01 & 1.23E-01 & 1.45E-13 \\
+        SMPD1    & 19 & 35,863,600  & 35,863,800  & 3.69E-01  & 6.08E-02 & 1.97E-09 \\
+        MIA      & 19 & 41,381,925  & 41,385,125  & -1.23E+00 & 1.69E-01 & 8.58E-13 \\
+        hK11     & 19 & 51,508,940  & 51,510,740  & 1.41E+00  & 2.22E-01 & 3.84E-10 \\
+        WFDC2    & 20 & 44,204,435  & 44,205,035  & 4.17E-01  & 6.81E-02 & 1.37E-09 \\
+        \bottomrule
+    \end{tabular}
+    \caption{\Gls{cn}-\gls{gwas} results.
+        The \glspl{cnv} in the top section were used to select the 15 individuals for resequencing.}
+    \label{tab:cngwas}
+\end{table}
+
 Overall, 872 individuals had both genotyping and protein data which passed \gls{qc}.
 \textsf{CNVnator} reported 243,987 \glspl{cnv}, which after post-processing resulted in 23,831 variants to be included in our analysis.
-We found 30 \glspl{cnv} to be associated with 17 biomarkers.
+We found 30 \glspl{cnv} to be associated with 17 biomarkers (\cref{tab:cngwas}).
 
 The quality of our long-read sequencing results was mixed.
 While most samples received high coverage, in three cases less than half of all ZMWs produced high-quality reads.
@@ -705,5 +726,5 @@ The improving accuracy and cost of \gls{wgs}, along with novel approaches such a
 
 \printglossary
 
-\printbibliography
+\printbibliography[notcategory=myworks]
 \end{document}
